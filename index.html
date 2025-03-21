@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JB's Shop</title>
+    <title>J&B</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/body.css">
@@ -13,10 +13,10 @@
     <div id="nav">
         <!--UPPER NAV-->
         <div id="naslov">
-            <h1>J&B</h1>
+            <h1>J<span>&</span>B</h1>
         </div>
         <!--LINE-->
-        <div id="line"></div>
+        <div class="line"></div>
         <!--LOWER NAV-->
         <div id="lower_nav">
             <ul id="links">
@@ -31,43 +31,73 @@
                 <img class="icon" src="images/search_icon.svg" alt="">
             </div>
         </div>
+        <!--BANNER-->
+        <div id="div_banner">
+            <div id="banner_content">
+                <h2>Men's Fashion <span>Sale</span></h2>
+                <h3>Up to 50% off</h3>
+                <button id="sale_button">Shop Now</button>
+            </div>
+            <img id="banner" src="images/banner.png" alt="">
+        </div>
     </div>
 
     <!--BODY-->
     <div id="body">
-        <div class="row">
-            <div class="container">
-                <img class="picture" src="images/bijela_majca.jpg" alt="">
+        <div class="section">
+            <h2><span>&</span> Best Sellers</h2>
+            <div class="container_row">
+                <div class="container">
+                   <img class="product_picture" src="images/products/majce/bijela_majca.png" alt="">
+                   <img src="" alt="">
+                   <div class="about_product">
+                        <h4>Bijela Majca</h4>
+                        <h4>30€</h4>
+                   </div>
+                </div>
+                <div class="container">
+                    <img class="product_picture" src="images/products/majce/crna_majca.jpg" alt="">
+                    <div class="about_product">
+                        <h4>Crna Majca</h4>
+                        <h4>30€</h4>
+                   </div>
+                </div>
+                <div class="container">
+                    <img class="product_picture" src="images/products/majce/zelena_majca.jpg" alt="">
+                    <div class="about_product">
+                        <h4>Zelena Majca</h4>
+                        <h4>15€</h4>
+                   </div>
+                </div>
             </div>
-            <div class="container">
-                <img class="picture" src="images/crna_majca.jpg" alt="">
-            </div>
-            <div class="container">
-                
+            <div class="container_row">
+                <div class="container">
+                    <img class="product_picture" src="images/products/hlace/smede_hlace.png" alt="">
+                    <div class="about_product">
+                        <h4>Smeđe Hlače</h4>
+                        <h4>20€</h4>
+                   </div>
+                </div>
+                <div class="container">
+                    <img class="product_picture" src="images/products/hlace/bijele_hlace.png" alt="">
+                    <div class="about_product">
+                        <h4>Bijele Hlače</h4>
+                        <h4>40€</h4>
+                   </div>
+                </div>
+                <div class="container">
+                    <img class="product_picture" src="images/products/kape/Usa_kapa.png" alt="">
+                    <div class="about_product">
+                        <h4>USA Kapa</h4>
+                        <h4>10€</h4>
+                   </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="container">
-                
-            </div>
-            <div class="container">
-                
-            </div>
-            <div class="container">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="container">
-                
-            </div>
-            <div class="container">
-                
-            </div>
-            <div class="container">
-                
-            </div>
-        </div>
+        
+    </div>
+    <div class="Rating_section">
+        
     </div>
     
 </body>

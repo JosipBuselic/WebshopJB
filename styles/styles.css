@@ -17,8 +17,7 @@
 
     /*--------- COLORS -----------*/
     --tamno_plava: #27445D;
-    --tamno: #F9E6CF;
-    --svjetlo_zelena: #71BBB2;
+    --orange: #FF5722;
     --creamy:#EFE9D5;
     
     /*---------- FONTS ------------ */
@@ -29,5 +28,5 @@
 
 body{
     background-color: var(--creamy);
-    margin: 0 4rem;
+    margin: 0 5%;
 }
