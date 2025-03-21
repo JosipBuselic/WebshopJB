@@ -1,0 +1,18 @@
+#body{
+    margin-top: 200px;
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+.container{
+    width: 200px;
+    height:200px;
+    background-color: var(--tamno);
+    cursor: pointer;
+}
+.picture{
+    width: 200px;
+    height: 300px;
+}

@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: montserrat_bold;
+    src: url("../fonts/Montserrat/static/Montserrat-Medium.ttf");
+}
+@font-face {
+    font-family: montserrat_light;
+    src: url("../fonts/Montserrat/static/Montserrat-Light.ttf");
+}
+
+
+:root{
+
+    /*--------- COLORS -----------*/
+    --tamno_plava: #27445D;
+    --tamno: #F9E6CF;
+    --svjetlo_zelena: #71BBB2;
+    --creamy:#EFE9D5;
+    
+    /*---------- FONTS ------------ */
+    --bold: "montserrat_bold", montserrat_bold;
+    --light: "montserrat_light", montserrat_light;
+
+}
+
+body{
+    background-color: var(--creamy);
+    margin: 0 4rem;
+}
