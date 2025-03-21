@@ -30,3 +30,12 @@ body{
     background-color: var(--creamy);
     margin: 0 5%;
 }
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--tamno_plava);
+    border-radius: 5px;
+}
