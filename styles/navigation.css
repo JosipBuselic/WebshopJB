@@ -88,6 +88,7 @@
 
 #banner_content{
     position: absolute;
+    transform: translate(-10%,-10%);
     left: 10%;
     top: 25%;
 }
@@ -120,6 +121,7 @@
     position: relative;
     transition: hover 0.3s ease-in-out;
     z-index: 1;
+    cursor: pointer;
 }
 
 #sale_button::after{

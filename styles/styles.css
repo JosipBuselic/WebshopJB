@@ -19,6 +19,7 @@
     --tamno_plava: #27445D;
     --orange: #FF5722;
     --creamy:#EFE9D5;
+    --watermark:rgba(255, 255, 255, 0.2);
     
     /*---------- FONTS ------------ */
     --bold: "montserrat_bold", montserrat_bold;
