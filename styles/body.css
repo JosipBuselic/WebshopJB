@@ -10,7 +10,7 @@
     color: var(--orange);
 }
 .container_row{
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
@@ -27,6 +27,8 @@
     width: 100%;
     border: 3px solid var(--tamno_plava);
     object-fit: contain;
+    cursor: pointer;
+    position: relative;
 }
 
 .about_product{
@@ -41,10 +43,53 @@
     margin-top: 10px;
 }
 
+.size_buttons{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--tamno_plava);
+    height: 30%;
+    width: 0%;
+    cursor: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.size{
+    display: none;
+    justify-content: center;
+
+    position: relative;
+    left: 10%;
+    border: 1px solid var(--tamno_plava);
+    font-family: var(--bold);
+    background-color: whitesmoke;
+    color: var(--tamno_plava);
+    cursor: pointer;
+    width: 80%;
+    padding: 10px;
+}
+
+.product_picture:hover + .size_buttons,
+.size_buttons:hover{
+    width: 5%;
+}
+
+.product_picture:hover + .size_buttons .size,
+.size_buttons:hover .size{
+    display: flex;
+    animation: showbuttons 0.4s ease-in-out;
+}
+
+@keyframes showbuttons {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
 /*--------- Video banner---------*/
 
 video::-webkit-media-controls {
-    display: none !important;
+    display: none;
 }
 
 #banner_video{
