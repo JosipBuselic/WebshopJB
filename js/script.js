@@ -60,6 +60,23 @@ document.addEventListener("DOMContentLoaded", () =>{
             }, 500);
         });
     }
+
+    // Kategorije tab
+    document.getElementById("kategorije").addEventListener("click", () =>{
+        const kategorije_section = document.getElementById("kategorije_section");
+        const kategorije_links = document.getElementById("kategorije_links");
+
+        kategorije_section.style.width = "20%";
+        kategorije_links.style.opacity = "1";
+    });
+
+    document.getElementById("kategorije_exit").addEventListener("click", () =>{
+        const kategorije_section = document.getElementById("kategorije_section");
+        const kategorije_links = document.getElementById("kategorije_links");
+
+        kategorije_section.style.width = "0";
+        kategorije_links.style.opacity = "0";
+    });
     
 
 });

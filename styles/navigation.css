@@ -115,6 +115,71 @@
     z-index: 999;
 }
 
+#kategorije_section{
+    position: fixed;
+    background-color: var(--creamy);
+    left: 0;
+    top: 0;
+    z-index: 999;
+    height: 100%;
+    width: 0%;
+    border-right: 2px solid var(--tamno_plava);
+    transition: all 0.3s ease-in-out;
+}
+
+#kategorije_links{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 100px;
+    opacity: 0;
+    transition: all 0.1s ease-in;
+}
+
+.kategorije_link{
+    list-style: none;
+    margin-top: 50px;
+}
+.kategorije_link a{
+    position: relative;
+    text-decoration: none;
+    color: var(--tamno_plava);
+    font-family: var(--light);
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+.kategorije_link a::after{
+    position: absolute;
+    content: "";
+    background-color: var(--tamno_plava);
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.kategorije_link:hover a::after{
+    width: 100%;
+}
+
+#kategorije_exit{
+    position: absolute;
+    right: 5%;
+    top: 1%;
+    background-color: var(--creamy);
+    border: none;
+    cursor: pointer;
+    font-size: 35px;
+    color: var(--tamno_plava_);
+    font-family: var(--bold);
+}
+
+#kategorije_exit:hover{
+    color: var(--tamno_plava_lower);
+}
+
 
 /*------ BANNER --------*/
 
