@@ -40,3 +40,11 @@ body{
     background-color: var(--tamno_plava);
     border-radius: 5px;
 }
+
+::selection{
+    background: rgba(255, 87, 34, 0.8);
+}
+
+::-moz-selection {
+    background:  rgba(255, 87, 34, 0.8) ;
+  }
