@@ -1,4 +1,5 @@
-let countForCart = 0;
+
+
 document.addEventListener("DOMContentLoaded", () =>{
     
     window.addEventListener("scroll", () => {
@@ -16,14 +17,49 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     
     const sizeElements = document.getElementsByClassName("size");
+    let countForCart = 0;
+    
     for (let i = 0; i < sizeElements.length; i++) {
         sizeElements[i].addEventListener("click", () => {
             const circle = document.getElementById("circle");
-            circle.innerHTML = ++countForCart;
-            if (countForCart !== 0) {
-                circle.style.display = "flex";
-                circle.style.textAlign = "center";
-            }
+    
+            let previousSize = sizeElements[i].innerHTML;
+    
+            // Prikaz loadera
+            sizeElements[i].innerHTML = '<div class="loader"></div>';
+            const loader = sizeElements[i].querySelector(".loader");
+    
+            loader.style.border = '2px solid #27445D';
+            loader.style.borderTop = '2px solid transparent';
+            loader.style.borderRadius = '50%';
+            loader.style.width = '100%';
+            loader.style.height = '100%';
+            loader.style.animation = 'spin 0.5s linear infinite';
+    
+            // Nakon 500ms, zamijeni loader sa check ikonom i ažuriraj krug
+            setTimeout(() => {
+                sizeElements[i].innerHTML = '<img src="images/icon_check.png" alt="" class="check">';
+                const check = sizeElements[i].querySelector(".check");
+    
+                check.style.position = "absolute";
+                check.style.objectFit = "contain";
+                check.style.width = "90%";
+                check.style.height = "60%";
+    
+                circle.innerHTML = ++countForCart;
+    
+                if (countForCart !== 0) {
+                    circle.style.display = "flex";
+                    circle.style.textAlign = "center";
+                }
+    
+                // Vrati izvorni tekst nakon dodatnih 300ms
+                setTimeout(() => {
+                    sizeElements[i].innerHTML = previousSize;
+                }, 300);
+            }, 500);
         });
     }
+    
+
 });
