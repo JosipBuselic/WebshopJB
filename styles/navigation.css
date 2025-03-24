@@ -84,7 +84,7 @@
 }
 
 .link a:hover::after{
-    width: 50%;
+    width: 100%;
 }
 
 .icon {
