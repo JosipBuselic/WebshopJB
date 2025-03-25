@@ -67,7 +67,9 @@ document.addEventListener("DOMContentLoaded", () =>{
         const kategorije_links = document.getElementById("kategorije_links");
 
         kategorije_section.style.width = "20%";
-        kategorije_links.style.opacity = "1";
+        setTimeout(() => {
+            kategorije_links.style.opacity = "1";
+        }, 300);
     });
 
     document.getElementById("kategorije_exit").addEventListener("click", () =>{
