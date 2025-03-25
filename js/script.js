@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () =>{
     
+    //---- Scroll top button --------
     window.addEventListener("scroll", () => {
         const button = document.getElementById("top_button");
         if (window.scrollY > 100) {
@@ -61,7 +62,26 @@ document.addEventListener("DOMContentLoaded", () =>{
         });
     }
 
-    // Kategorije tab
+
+    //----- Counter for added item -----
+    const counters = document.getElementsByClassName("counter");
+    const sizes = document.getElementsByClassName("size");
+    for(let i = 0; i < sizes.length; ++i){
+        sizes[i].addEventListener("click", () => {
+            number = Math.floor(i/6); // broj za koji counter govorimo
+            console.log(number);
+            console.log(counters[number]);
+            let currentValue = Number(counters[number].innerHTML);
+            currentValue++;
+            counters[number].innerHTML = `${currentValue}`;
+
+            if(counters[number] != 0){
+                counters[number].style.display = "block";
+            }
+        });
+    }
+
+    // ----- Kategorije tab ----- 
     document.getElementById("kategorije").addEventListener("click", () =>{
         const kategorije_section = document.getElementById("kategorije_section");
         const kategorije_links = document.getElementById("kategorije_links");
@@ -83,24 +103,6 @@ document.addEventListener("DOMContentLoaded", () =>{
             kategorije_links.style.display = "none";
         },300);
     });
-
-    //----- Counter for added item -----
-    const counters = document.getElementsByClassName("counter");
-    const sizes = document.getElementsByClassName("size");
-    for(let i = 0; i < sizes.length; ++i){
-        sizes[i].addEventListener("click", () => {
-            number = Math.floor(i/6); // broj za koji counter govorimo
-            console.log(number);
-            console.log(counters[number]);
-            let currentValue = Number(counters[number].innerHTML);
-            currentValue++;
-            counters[number].innerHTML = `${currentValue}`;
-
-            if(counters[number] != 0){
-                counters[number].style.display = "block";
-            }
-        });
-    }
     
     // ------ Image slider -------
     const first = document.getElementById("first_circle");
