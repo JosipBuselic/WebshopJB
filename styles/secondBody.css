@@ -55,13 +55,3 @@
 .circle_selection:hover{
     background-color: var(--tamno_plava) !important;
 }
-
-.footer{
-    position: relative;
-    margin-top: 100px;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 400px;
-    background-color: var(--tamno_plava);
-}

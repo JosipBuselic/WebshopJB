@@ -84,8 +84,25 @@ document.addEventListener("DOMContentLoaded", () =>{
         },300);
     });
 
+    //----- Counter for added item -----
+    const counters = document.getElementsByClassName("counter");
+    const sizes = document.getElementsByClassName("size");
+    for(let i = 0; i < sizes.length; ++i){
+        sizes[i].addEventListener("click", () => {
+            number = Math.floor(i/6); // broj za koji counter govorimo
+            console.log(number);
+            console.log(counters[number]);
+            let currentValue = Number(counters[number].innerHTML);
+            currentValue++;
+            counters[number].innerHTML = `${currentValue}`;
+
+            if(counters[number] != 0){
+                counters[number].style.display = "block";
+            }
+        });
+    }
     
-    // Image slider
+    // ------ Image slider -------
     const first = document.getElementById("first_circle");
     const second = document.getElementById("second_circle");
     const third = document.getElementById("third_circle");

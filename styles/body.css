@@ -17,6 +17,7 @@
 }
 
 .container{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 25%;
@@ -49,7 +50,7 @@
     flex-direction: column;
     justify-content: space-around;
     background-color: var(--tamno_plava);
-    height: 30%;
+    height: 50%;
     width: 0%;
     cursor: auto;
     transition: all 0.3s ease-in-out;
@@ -58,7 +59,7 @@
 .size{
     display: none;
     justify-content: center;
-
+    align-items: center;
     position: relative;
     left: 10%;
     border: 1px solid var(--tamno_plava);
@@ -73,7 +74,7 @@
 
 .product_picture:hover + .size_buttons,
 .size_buttons:hover{
-    width: 5%;
+    width: 25%;
 }
 
 .product_picture:hover + .size_buttons .size,
@@ -84,6 +85,23 @@
 
 .size:hover{
     background-color: var(--light_gray);
+}
+
+.counter{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 1%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--tamno_plava);
+    border-radius: 50px;
+    text-align: center;
+    align-content: center;
+    font-size: 15px;
+    font-family: var(--bold);
+    color: var(--orange);
+    z-index: 999;
 }
 
 @keyframes showbuttons {
