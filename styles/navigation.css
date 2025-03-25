@@ -17,6 +17,15 @@
     cursor: pointer;
 }
 
+#top_button img{
+    position: absolute;
+    object-fit: cover;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%,-50%) rotate(270deg);
+    left: 50%;
+    top: 50%;
+}
 
 /*---------- UPPER NAV ------------*/
 
