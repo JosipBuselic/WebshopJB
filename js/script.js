@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     // elements in local storage
     const sizes = document.getElementsByClassName("size");
+    let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
     for(let i = 0; i < sizes.length; i++){
         sizes[i].addEventListener("click", () => {
             let number = Math.floor(i/6);
@@ -29,23 +30,25 @@ document.addEventListener("DOMContentLoaded", () =>{
             for(let j = 0; j < data.categories.length; j++){
                 for(let k = 0; k < data.categories[j].products.length; k++){
                     if(productsImg[number].src.includes(data.categories[j].products[k].image)){
-                        localStorage.setItem(localStorage.length,
-                            data.categories[j].products[k].name + 
-                            " " +
-                            data.categories[j].products[k].price + 
-                            " "+ 
-                            sizes[i].textContent);
+                        let object = {name: `${data.categories[j].products[k].name}`,
+                        size: `${sizes[i].textContent}`,
+                        price: `${data.categories[j].products[k].price}`,
+                        image:`${data.categories[j].products[k].image}`}
+
+                        product_in_cart.push(JSON.stringify(object));
                     }
                 }
             }
+
+            localStorage.setItem("cart", JSON.stringify(product_in_cart));
         });
     }
 
 
     // KOŠARICA LOCAL STORAGE
-    circle.innerHTML = localStorage.length;
+    circle.innerHTML = product_in_cart.length;
     
-    if (localStorage.length != 0) {
+    if (product_in_cart.length != 0) {
         circle.style.display = "flex";
         circle.style.textAlign = "center";
     }
@@ -81,9 +84,9 @@ document.addEventListener("DOMContentLoaded", () =>{
                 check.style.height = "60%";
 
 
-                circle.innerHTML = localStorage.length;
+                circle.innerHTML = product_in_cart.length;
 
-                if (localStorage.length != 0) {
+                if (product_in_cart.length != 0) {
                     circle.style.display = "flex";
                     circle.style.textAlign = "center";
                 }
@@ -102,12 +105,14 @@ document.addEventListener("DOMContentLoaded", () =>{
     const counters = document.getElementsByClassName("counter");
     const product_picture = document.getElementsByClassName("product_picture");
 
-    function updateCounters(){
+    function updateCounters(){  
         for(let i = 0; i < counters.length; i++){
             let counter = 0;
 
-            for(let j = 0; j < localStorage.length; j++){
-                if(product_picture[i].src.includes(localStorage.getItem(j).split(" ")[0])){
+            for(let j = 0; j < product_in_cart.length; j++){
+                const item = JSON.parse(product_in_cart[j]);
+
+                if(product_picture[i].src.includes(item.image)){
                     counter++;
                 }
             }
@@ -123,8 +128,10 @@ document.addEventListener("DOMContentLoaded", () =>{
             let number = Math.floor(i/6);
             let counter = 0;
 
-            for(let j = 0; j < localStorage.length; j++){
-                if(product_picture[number].src.includes(localStorage.getItem(j).split(" ")[0])){
+            for(let j = 0; j < product_in_cart.length; j++){
+                const item = JSON.parse(product_in_cart[j]);
+
+                if(product_picture[number].src.includes(item.image)){
                     counter++;
                 }
             }
