@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const size = document.createElement("h3");
             const price = document.createElement("h3");
 
-            name.textContent = `size: ${item.name}`;
+            name.textContent = `name: ${item.name}`;
             size.textContent = `size: ${item.size}`;
-            price.textContent = `size: ${item.price}`;
+            price.textContent = `price: ${item.price}€`;
 
             childdiv1.appendChild(name);
             childdiv1.appendChild(size);
