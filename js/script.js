@@ -1,4 +1,4 @@
-
+import { data } from './data.js';
 
 document.addEventListener("DOMContentLoaded", () =>{
     
@@ -16,6 +16,39 @@ document.addEventListener("DOMContentLoaded", () =>{
         window.scrollTo({top: 0, behavior: "smooth"});
     });
 
+
+
+    // elements in local storage
+    const sizes = document.getElementsByClassName("size");
+    for(let i = 0; i < sizes.length; i++){
+        sizes[i].addEventListener("click", () => {
+            let number = Math.floor(i/6);
+            
+            const productsImg = document.getElementsByClassName("product_picture");
+
+            for(let j = 0; j < data.categories.length; j++){
+                for(let k = 0; k < data.categories[j].products.length; k++){
+                    if(productsImg[number].src.includes(data.categories[j].products[k].image)){
+                        localStorage.setItem(localStorage.length,
+                            data.categories[j].products[k].name + 
+                            " " +
+                            data.categories[j].products[k].price + 
+                            " "+ 
+                            sizes[i].textContent);
+                    }
+                }
+            }
+        });
+    }
+
+
+    // KOŠARICA LOCAL STORAGE
+    circle.innerHTML = localStorage.length;
+    
+    if (localStorage.length != 0) {
+        circle.style.display = "flex";
+        circle.style.textAlign = "center";
+    }
     
     const sizeElements = document.getElementsByClassName("size");
     let countForCart = 0;
@@ -46,13 +79,15 @@ document.addEventListener("DOMContentLoaded", () =>{
                 check.style.objectFit = "contain";
                 check.style.width = "90%";
                 check.style.height = "60%";
-    
-                circle.innerHTML = ++countForCart;
-    
-                if (countForCart !== 0) {
+
+
+                circle.innerHTML = localStorage.length;
+
+                if (localStorage.length != 0) {
                     circle.style.display = "flex";
                     circle.style.textAlign = "center";
                 }
+
     
                 // Vrati izvorni tekst nakon dodatnih 300ms
                 setTimeout(() => {
@@ -65,21 +100,45 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     //----- Counter for added item -----
     const counters = document.getElementsByClassName("counter");
-    const sizes = document.getElementsByClassName("size");
-    for(let i = 0; i < sizes.length; ++i){
-        sizes[i].addEventListener("click", () => {
-            number = Math.floor(i/6); // broj za koji counter govorimo
-            console.log(number);
-            console.log(counters[number]);
-            let currentValue = Number(counters[number].innerHTML);
-            currentValue++;
-            counters[number].innerHTML = `${currentValue}`;
+    const product_picture = document.getElementsByClassName("product_picture");
 
-            if(counters[number] != 0){
-                counters[number].style.display = "block";
+    function updateCounters(){
+        for(let i = 0; i < counters.length; i++){
+            let counter = 0;
+
+            for(let j = 0; j < localStorage.length; j++){
+                if(product_picture[i].src.includes(localStorage.getItem(j).split(" ")[0])){
+                    counter++;
+                }
             }
+
+            counters[i].innerHTML = counter;
+            if(counters[i].innerHTML != 0){
+                counters[i].style.display = "block";
+            }
+        }
+    }
+    for(let i = 0; i < sizeElements.length; i++){
+        sizeElements[i].addEventListener("click", () => {
+            let number = Math.floor(i/6);
+            let counter = 0;
+
+            for(let j = 0; j < localStorage.length; j++){
+                if(product_picture[number].src.includes(localStorage.getItem(j).split(" ")[0])){
+                    counter++;
+                }
+            }
+        
+            setTimeout(() => {
+                counters[number].innerHTML = counter;
+                if(counters[number].innerHTML != 0){
+                    counters[number].style.display = "block";
+                }
+            },500);
         });
     }
+
+    updateCounters();
 
     // ----- Kategorije tab ----- 
     document.getElementById("kategorije").addEventListener("click", () =>{
@@ -103,64 +162,5 @@ document.addEventListener("DOMContentLoaded", () =>{
             kategorije_links.style.display = "none";
         },300);
     });
-    
-    // ------ Image slider -------
-    const first = document.getElementById("first_circle");
-    const second = document.getElementById("second_circle");
-    const third = document.getElementById("third_circle");
-
-    const row1 = document.getElementById("row1");
-    const row2 = document.getElementById("row2");
-    const row3 = document.getElementById("row3");
-    first.addEventListener("click", () => {
-        first.style.backgroundColor = "var(--tamno_plava)";
-        second.style.backgroundColor = "var(--tamno_plava_lower)";
-        third.style.backgroundColor = "var(--tamno_plava_lower)";
-
-        row1.style.display = "flex";
-        row2.style.display = "none";
-        row3.style.display = "none";
-    
-        setTimeout(() => {
-            row1.style.opacity = "1";
-            row2.style.opacity = "0";
-            row3.style.opacity = "0";
-        }, 50);
-
-   });
-    
-   second.addEventListener("click", () => {
-    first.style.backgroundColor = "var(--tamno_plava_lower)";
-    second.style.backgroundColor = "var(--tamno_plava)";
-    third.style.backgroundColor = "var(--tamno_plava_lower)";
-
-    row1.style.display = "none";
-    row2.style.display = "flex";
-    row3.style.display = "none";
-
-    setTimeout(() => {
-        row1.style.opacity = "0";
-        row2.style.opacity = "1";
-        row3.style.opacity = "0";
-    }, 50);
-
-   });
-
-   third.addEventListener("click", () => {
-    first.style.backgroundColor = "var(--tamno_plava_lower)";
-    second.style.backgroundColor = "var(--tamno_plava_lower)";
-    third.style.backgroundColor = "var(--tamno_plava)";
-
-    row1.style.display = "none";
-    row2.style.display = "none";
-    row3.style.display = "flex";
-
-    setTimeout(() => {
-        row1.style.opacity = "0";
-        row2.style.opacity = "0";
-        row3.style.opacity = "1";
-    }, 50);
-
-   });
 
 });

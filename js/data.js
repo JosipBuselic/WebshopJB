@@ -1,61 +1,71 @@
-const data = {
+export const data = {
     "website": "odjeca",
     "categories":[{
 
         "name":"majice",
         "products":[{
-            "name": "crna majica",
-            "image":"../images/products/majice/crna_majica",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "crna_majica",
+            "image":"images/products/majice/crna_majica",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "bijela majica",
-            "image":"../images/products/majice/bijela_majica",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "bijela_majica",
+            "image":"images/products/majice/bijela_majica",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "zelena majica",
-            "image":"../images/products/majice/bijela_majica",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "zelena_majica",
+            "image":"images/products/majice/zelena_majica",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "siva majica",
-            "image":"../images/products/majice/bijela_majica",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "siva_majica",
+            "image":"images/products/majice/siva_majica",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "siva majica",
-            "image":"../images/products/majice/roza_majica",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "siva_majica",
+            "image":"images/products/majice/roza_majica",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         }]
     },
     {
 
         "name":"hlace",
         "products":[{
-            "name": "bijele hlace",
-            "image":"../images/products/hlace/bijele_hlace",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "bijele_hlace",
+            "image":"images/products/hlace/bijele_hlace",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "smede hlace",
-            "image":"../images/products/hlace/smede_hlace",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "smede_hlace",
+            "image":"images/products/hlace/smede_hlace",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "crne hlace",
-            "image":"../images/products/hlace/crne_hlace",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "crne_hlace",
+            "image":"images/products/hlace/crne_hlace",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "plave hlace",
+            "name": "plave_hlace",
             "image":"../images/products/hlace/plave_hlace",
-            "size":["XS","S","M","L","XL","XXL"]
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "sive hlace",
-            "image":"../images/products/hlace/sive_hlace",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "sive_hlace",
+            "image":"images/products/hlace/sive_hlace",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         }]
     },
     {
@@ -63,53 +73,62 @@ const data = {
         "name":"kape",
         "products":[{
 
-            "name": "USA kapa",
-            "image":"../images/products/kape/Usa_kapa",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "USA_kapa",
+            "image":"images/products/kape/Usa_kapa",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "plava kapa",
-            "image":"../images/products/kape/plava_kapa",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "plava_kapa",
+            "image":"images/products/kape/plava_kapa",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "zuta kapa",
-            "image":"../images/products/kape/zuta_kapa",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "zuta_kapa",
+            "image":"images/products/kape/zuta_kapa",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "crna kapa",
-            "image":"../images/products/kape/crna_kapa",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "crna_kapa",
+            "image":"images/products/kape/crna_kapa",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "zelena kapa",
-            "image":"../images/products/kape/zelena_kapa",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "zelena_kapa",
+            "image":"images/products/kape/zelena_kapa",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         }]
     },
     {
         "name":"Trenike",
         "products":[{
 
-            "name": "crna trenirka",
-            "image":"../images/products/trenirka/crna_trenirka",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "crna_trenirka",
+            "image":"images/products/trenirka/crna_trenirka",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "smeda trenirka",
-            "image":"../images/products/trenirka/smeda_trenirka",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "smeda_trenirka",
+            "image":"images/products/trenirke/smeda_trenirka",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "plava trenirka",
-            "image":"../images/products/trenirka/plava_trenirka",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "plava_trenirka",
+            "image":"images/products/trenirka/plava_trenirka",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         },
         {
-            "name": "siva trenirka",
-            "image":"../images/products/trenirka/siva_trenirka",
-            "size":["XS","S","M","L","XL","XXL"]
+            "name": "siva_trenirka",
+            "image":"images/products/trenirke/siva_trenirka",
+            "size":["XS","S","M","L","XL","XXL"],
+            "price": 29.99
         }]
     }]
 }

@@ -11,8 +11,51 @@
     color: var(--tamno_plava);
     margin-bottom: 10px;
     font-size: 35px;
+
 }
 
 #cart_section h2 span{
     color: var(--orange);
+}
+
+.element{
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.element img{
+    width: 20%;
+    border: 3px solid var(--tamno_plava);
+}
+
+.product_quantity{
+    display: flex;
+    width: 10%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.product_quantity button{
+    padding: 12px;
+    border: 2px solid var(--tamno_plava);
+    background-color: var(--tamno_plava_lower);
+    color: var(--creamy);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.product_quantity button:hover{
+    background-color: var(--tamno_plava);
+}
+
+.product_quantity h3{
+    font-family: var(--bold);
+    color: var(--tamno_plava);
+}
+
+.product_info h3{
+    font-family: var(--bold);
+    color: var(--tamno_plava);
 }
