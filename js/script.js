@@ -178,9 +178,11 @@ document.addEventListener("DOMContentLoaded", () =>{
     document.getElementById("kategorije").addEventListener("click", () =>{
         const kategorije_section = document.getElementById("kategorije_section");
         const kategorije_links = document.getElementById("kategorije_links");
+        const black_screen = document.getElementById("whole_screen");
 
         kategorije_section.style.width = "20%";
         kategorije_links.style.display = "flex";
+        black_screen.style.display = "block";
         setTimeout(() => {
             kategorije_links.style.opacity = "1";
         }, 300);
@@ -189,12 +191,26 @@ document.addEventListener("DOMContentLoaded", () =>{
     document.getElementById("kategorije_exit").addEventListener("click", () =>{
         const kategorije_section = document.getElementById("kategorije_section");
         const kategorije_links = document.getElementById("kategorije_links");
+        const black_screen = document.getElementById("whole_screen");
 
         kategorije_section.style.width = "0";
         kategorije_links.style.opacity = "0";
         setTimeout(() => {
             kategorije_links.style.display = "none";
+            black_screen.style.display = "none";
         },300);
     });
+
+    document.getElementById("whole_screen").addEventListener("click", () =>{
+        const kategorije_section = document.getElementById("kategorije_section");
+        const kategorije_links = document.getElementById("kategorije_links");
+        const black_screen = document.getElementById("whole_screen");
+        kategorije_section.style.width = "0";
+        kategorije_links.style.opacity = "0";
+        setTimeout(() => {
+            kategorije_links.style.display = "none";
+            black_screen.style.display = "none";
+        },300);
+    })
 
 });
