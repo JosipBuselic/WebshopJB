@@ -4,32 +4,32 @@ export const data = {
 
         "name":"majice",
         "products":[{
-            "name": "crna_majica",
-            "image":"images/products/majice/crna_majica",
+            "name": "Crna Majica",
+            "image":"../images/products/majice/crna_majica.jpg",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99
         },
         {
-            "name": "bijela_majica",
-            "image":"images/products/majice/bijela_majica",
+            "name": "Bijela Majica",
+            "image":"../images/products/majice/bijela_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99
         },
         {
-            "name": "zelena_majica",
-            "image":"images/products/majice/zelena_majica",
+            "name": "Zelena Majica",
+            "image":"../images/products/majice/zelena_majica.jpg",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99
         },
         {
-            "name": "siva_majica",
-            "image":"images/products/majice/siva_majica",
+            "name": "Siva Majica",
+            "image":"../images/products/majice/siva_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99
         },
         {
-            "name": "siva_majica",
-            "image":"images/products/majice/roza_majica",
+            "name": "Siva Majica",
+            "image":"../images/products/majice/roza_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99
         }]
@@ -38,34 +38,34 @@ export const data = {
 
         "name":"hlace",
         "products":[{
-            "name": "bijele_hlace",
-            "image":"images/products/hlace/bijele_hlace",
+            "name": "Bijele Hlače",
+            "image":"../images/products/hlace/bijele_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "smede_hlace",
-            "image":"images/products/hlace/smede_hlace",
+            "name": "Smede Hlače",
+            "image":"../images/products/hlace/smede_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "crne_hlace",
-            "image":"images/products/hlace/crne_hlace",
+            "name": "Crne Hlače",
+            "image":"../images/products/hlace/crne_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "plave_hlace",
-            "image":"../images/products/hlace/plave_hlace",
+            "name": "Plave Hlače",
+            "image":"../images/products/hlace/plave_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "sive_hlace",
-            "image":"images/products/hlace/sive_hlace",
+            "name": "Sive Hlače",
+            "image":"../images/products/hlace/sive_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         }]
     },
     {
@@ -73,62 +73,62 @@ export const data = {
         "name":"kape",
         "products":[{
 
-            "name": "USA_kapa",
-            "image":"images/products/kape/Usa_kapa",
+            "name": "USA Kapa",
+            "image":"../images/products/kape/Usa_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "plava_kapa",
-            "image":"images/products/kape/plava_kapa",
+            "name": "Plava Kapa",
+            "image":"../images/products/kape/plava_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "zuta_kapa",
-            "image":"images/products/kape/zuta_kapa",
+            "name": "Žuta Kapa",
+            "image":"../images/products/kape/zuta_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "crna_kapa",
-            "image":"images/products/kape/crna_kapa",
+            "name": "Crna Kapa",
+            "image":"../images/products/kape/crna_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "zelena_kapa",
-            "image":"images/products/kape/zelena_kapa",
+            "name": "Zelena Kapa",
+            "image":"../images/products/kape/zelena_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         }]
     },
     {
         "name":"Trenike",
         "products":[{
 
-            "name": "crna_trenirka",
-            "image":"images/products/trenirka/crna_trenirka",
+            "name": "Crna Trenirka",
+            "image":"../images/products/trenirka/crna_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "smeda_trenirka",
-            "image":"images/products/trenirke/smeda_trenirka",
+            "name": "Smeda Trenirka",
+            "image":"../images/products/trenirke/smeda_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "plava_trenirka",
-            "image":"images/products/trenirka/plava_trenirka",
+            "name": "Plava Trenirka",
+            "image":"../images/products/trenirka/plava_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         },
         {
-            "name": "siva_trenirka",
-            "image":"images/products/trenirke/siva_trenirka",
+            "name": "Siva Trenirka",
+            "image":"../images/products/trenirke/siva_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 29.99,
         }]
     }]
 }

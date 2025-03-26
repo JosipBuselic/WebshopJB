@@ -29,13 +29,29 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             for(let j = 0; j < data.categories.length; j++){
                 for(let k = 0; k < data.categories[j].products.length; k++){
-                    if(productsImg[number].src.includes(data.categories[j].products[k].image)){
+                    if(productsImg[number].src.includes(data.categories[j].products[k].image.split("/")[4])){
+
                         let object = {name: `${data.categories[j].products[k].name}`,
                         size: `${sizes[i].textContent}`,
                         price: `${data.categories[j].products[k].price}`,
-                        image:`${data.categories[j].products[k].image}`}
+                        image:`${data.categories[j].products[k].image}`,
+                        quantity: 1}
 
-                        product_in_cart.push(JSON.stringify(object));
+                        // odradujemo quantity
+                        const itemIndex = product_in_cart.findIndex(item => {
+                            const parsedItem = JSON.parse(item);
+                            return parsedItem.name === object.name &&
+                                   parsedItem.size === object.size;
+                        });
+
+                        if(itemIndex == -1){
+                            product_in_cart.push(JSON.stringify(object));
+                        }
+                        else{
+                            let cartItem = JSON.parse(product_in_cart[itemIndex]);
+                            cartItem.quantity += 1;
+                            product_in_cart[itemIndex] = JSON.stringify(cartItem);
+                        }
                     }
                 }
             }
@@ -46,15 +62,21 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 
     // KOŠARICA LOCAL STORAGE
-    circle.innerHTML = product_in_cart.length;
+    let counterForCart = 0;
+    for(let i = 0; i < product_in_cart.length; i++){
+        const item = JSON.parse(product_in_cart[i]);
+
+        counterForCart += item.quantity;
+    }
+
+    circle.innerHTML = counterForCart;
     
-    if (product_in_cart.length != 0) {
+    if (counterForCart != 0) {
         circle.style.display = "flex";
         circle.style.textAlign = "center";
     }
     
     const sizeElements = document.getElementsByClassName("size");
-    let countForCart = 0;
 
     for (let i = 0; i < sizeElements.length; i++) {
         sizeElements[i].addEventListener("click", () => {
@@ -84,9 +106,16 @@ document.addEventListener("DOMContentLoaded", () =>{
                 check.style.height = "60%";
 
 
-                circle.innerHTML = product_in_cart.length;
+                counterForCart = 0;
+                for(let i = 0; i < product_in_cart.length; i++){
+                    const item = JSON.parse(product_in_cart[i]);
 
-                if (product_in_cart.length != 0) {
+                    counterForCart += item.quantity;
+                }
+
+                circle.innerHTML = counterForCart;
+                
+                if (counterForCart != 0) {
                     circle.style.display = "flex";
                     circle.style.textAlign = "center";
                 }
@@ -111,9 +140,8 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             for(let j = 0; j < product_in_cart.length; j++){
                 const item = JSON.parse(product_in_cart[j]);
-
-                if(product_picture[i].src.includes(item.image)){
-                    counter++;
+                if(product_picture[i].src.includes(item.image.split("/")[4])){
+                    counter += item.quantity;
                 }
             }
 
@@ -127,12 +155,11 @@ document.addEventListener("DOMContentLoaded", () =>{
         sizeElements[i].addEventListener("click", () => {
             let number = Math.floor(i/6);
             let counter = 0;
-
+            
             for(let j = 0; j < product_in_cart.length; j++){
                 const item = JSON.parse(product_in_cart[j]);
-
-                if(product_picture[number].src.includes(item.image)){
-                    counter++;
+                if(product_picture[number].src.includes(item.image.split("/")[4])){
+                    counter += item.quantity;
                 }
             }
         
