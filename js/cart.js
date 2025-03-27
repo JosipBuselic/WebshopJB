@@ -3,63 +3,73 @@ document.addEventListener("DOMContentLoaded", () => {
     function loadFromLocalStorage(){
         let product_in_cart = JSON.parse(localStorage.getItem("cart"));
         const cart_section = document.getElementById("cart_section");
-        for(let i = 0; i < product_in_cart.length; i++){
-            const item = JSON.parse(product_in_cart[i]);
 
-            // radim div element
-            const div = document.createElement("div");
-            div.classList.add("element");
+        if(localStorage.length == 0 || product_in_cart.length == 0){
+            const empty = document.createElement("h1");
+            empty.textContent = "The cart is empty maybe try to buy something :D";
 
-            //appendam ga na cart_section
-            cart_section.appendChild(div);
-
-            // kreiram img
-            const img = document.createElement("img");
-            img.src = item.image;
-
-            // appendam sliku na nas div
-            div.appendChild(img);     
-            
-            // kreiram jos dva pod diva
-            const childdiv1 = document.createElement("div");
-            const childdiv2 = document.createElement("div");
-
-            childdiv1.classList.add("product_info");
-            childdiv2.classList.add("product_quantity");
-
-            div.appendChild(childdiv1);
-            div.appendChild(childdiv2);
-
-
-            //kreiram sav tekst koje je potreban za product_info
-            const name = document.createElement("h3");
-            const size = document.createElement("h3");
-            const price = document.createElement("h3");
-
-            name.textContent = `name: ${item.name}`;
-            size.textContent = `size: ${item.size}`;
-            price.textContent = `price: ${item.price}€`;
-
-            childdiv1.appendChild(name);
-            childdiv1.appendChild(size);
-            childdiv1.appendChild(price);
-
-            // kreiram dugma koja ce nam reci quantity za neki item koliko smo ga uzeli
-            const sub = document.createElement("button");
-            const quantity = document.createElement("h3");
-            const add = document.createElement("button");
-
-            sub.innerText = "<";
-            add.innerText = ">";
-            quantity.innerText = item.quantity;
-
-            sub.classList.add("sub");
-            quantity.classList.add("quantity");
-            add.classList.add("add");
-
-            childdiv2.appendChild(sub);
-            childdiv2.appendChild(quantity);
-            childdiv2.appendChild(add);
+            cart_section.appendChild(empty);
+        }
+        else{
+            for(let i = 0; i < product_in_cart.length; i++){
+                const item = JSON.parse(product_in_cart[i]);
+    
+                // radim div element
+                const div = document.createElement("div");
+                div.classList.add("element");
+    
+                //appendam ga na cart_section
+                cart_section.appendChild(div);
+    
+                // kreiram img
+                const img = document.createElement("img");
+                img.src = item.image;
+    
+                // appendam sliku na nas div
+                div.appendChild(img);     
+                
+                // kreiram jos dva pod diva
+                const childdiv1 = document.createElement("div");
+                const childdiv2 = document.createElement("div");
+    
+                childdiv1.classList.add("product_info");
+                childdiv2.classList.add("product_quantity");
+    
+                div.appendChild(childdiv1);
+                div.appendChild(childdiv2);
+    
+    
+                //kreiram sav tekst koje je potreban za product_info
+                const name = document.createElement("h3");
+                const size = document.createElement("h3");
+                const price = document.createElement("h3");
+    
+                name.textContent = `name: ${item.name}`;
+                size.textContent = `size: ${item.size}`;
+                price.textContent = `price: ${item.price}€`;
+    
+                childdiv1.appendChild(name);
+                childdiv1.appendChild(size);
+                childdiv1.appendChild(price);
+    
+                // kreiram dugma koja ce nam reci quantity za neki item koliko smo ga uzeli
+                const sub = document.createElement("button");
+                const quantity = document.createElement("h3");
+                const add = document.createElement("button");
+    
+                sub.innerText = "<";
+                add.innerText = ">";
+                quantity.innerText = item.quantity;
+    
+                sub.classList.add("sub");
+                quantity.classList.add("quantity");
+                add.classList.add("add");
+    
+                childdiv2.appendChild(sub);
+                childdiv2.appendChild(quantity);
+                childdiv2.appendChild(add);
+            }
+        
         }
     }
     
@@ -80,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
 
             if(quantitys[i].innerText == 0){
-                elements[i].remove();
                 
                 for(let j = i; j < product_in_cart.length && j + 1 != product_in_cart.length; j++){
                     let help = product_in_cart[j];
@@ -147,4 +156,21 @@ document.addEventListener("DOMContentLoaded", () => {
             circle.style.display = "none";
         }
     }
+
+
+    function empty_cart(){
+        document.getElementById("empty_cart").addEventListener("click", () =>{
+            const elements = document.getElementsByClassName("element");
+            const product_in_cart = JSON.parse(localStorage.getItem("cart"));
+
+            localStorage.clear();
+
+            
+            cartCount();
+
+            window.location.href = "../cart.html";
+        });
+    }
+
+    empty_cart();
 });

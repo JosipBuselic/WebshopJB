@@ -108,7 +108,7 @@ export const data = {
         "products":[{
 
             "name": "Crna Trenirka",
-            "image":"../images/products/trenirka/crna_trenirka.png",
+            "image":"../images/products/trenirke/crna_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99,
         },
@@ -120,7 +120,7 @@ export const data = {
         },
         {
             "name": "Plava Trenirka",
-            "image":"../images/products/trenirka/plava_trenirka.png",
+            "image":"../images/products/trenirke/plava_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99,
         },
