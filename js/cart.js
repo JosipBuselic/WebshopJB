@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
             cart_section.appendChild(empty);
         }
         else{
+
+
             for(let i = 0; i < product_in_cart.length; i++){
                 const item = JSON.parse(product_in_cart[i]);
     
@@ -44,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const size = document.createElement("h3");
                 const price = document.createElement("h3");
     
-                name.textContent = `name: ${item.name}`;
-                size.textContent = `size: ${item.size}`;
-                price.textContent = `price: ${item.price}€`;
+                name.textContent = `Name: ${item.name}`;
+                size.textContent = `Size: ${item.size}`;
+                price.textContent = `Price: ${item.price}€`;
     
                 childdiv1.appendChild(name);
                 childdiv1.appendChild(size);
@@ -73,77 +75,82 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
-    loadFromLocalStorage();
+    function sub_button(){
+        const subs = document.getElementsByClassName("sub");
+        const quantitys = document.getElementsByClassName("quantity");
+        for(let i = 0; i < subs.length; i++){
+            subs[i].addEventListener("click", () =>{
 
-    let subs = document.getElementsByClassName("sub");
-    const product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
-    for(let i = 0; i < subs.length; i++){
-        subs = document.getElementsByClassName("sub");
-        subs[i].addEventListener("click", () =>{
+                const product_in_cart = JSON.parse(localStorage.getItem("cart"));
 
-
-            const quantitys = document.getElementsByClassName("quantity");
-            const elements = document.getElementsByClassName("element");
-
-            console.log(i);
-            quantitys[i].innerText = Number(quantitys[i].innerText) - 1;
-            
-
-            if(quantitys[i].innerText == 0){
+                console.log(i);
+                quantitys[i].innerText = Number(quantitys[i].innerText) - 1;
                 
-                for(let j = i; j < product_in_cart.length && j + 1 != product_in_cart.length; j++){
-                    let help = product_in_cart[j];
-                    product_in_cart[j] = product_in_cart[j + 1];
-                    product_in_cart[j + 1] = help;
+
+                if(quantitys[i].innerText == 0){
                     
-                }   
-                
-                product_in_cart.pop();
+                    for(let j = i; j < product_in_cart.length && j + 1 != product_in_cart.length; j++){
+                        let help = product_in_cart[j];
+                        product_in_cart[j] = product_in_cart[j + 1];
+                        product_in_cart[j + 1] = help;
+                        
+                    }   
+                    
+                    product_in_cart.pop();
 
-            }
-            else{
-                let cartItem = JSON.parse(product_in_cart[i]);
-                cartItem.quantity -= 1;
-                product_in_cart[i] = JSON.stringify(cartItem);
-            }
+                }
+                else{
+                    let cartItem = JSON.parse(product_in_cart[i]);
+                    cartItem.quantity -= 1;
+                    product_in_cart[i] = JSON.stringify(cartItem);
+                }
 
 
-            localStorage.setItem("cart", JSON.stringify(product_in_cart));
+                localStorage.setItem("cart", JSON.stringify(product_in_cart));
 
-            cartCount();
+                cartCount();
 
-            window.location.href = "../cart.html"; // dodao sam kad se kliknu da se mora ucitati opet site
-        });
+                window.location.href = "../cart.html"; // dodao sam kad se kliknu da se mora ucitati opet site
+            });
+        }
     }
-
-    const adds = document.getElementsByClassName("add");
-    for(let i = 0; i < adds.length; i++){
-        adds[i].addEventListener("click", () =>{
-            const quantitys = document.getElementsByClassName("quantity");
-            const item = JSON.parse(product_in_cart[i]);
-            const circle = document.getElementById("circle");
-
-            quantitys[i].innerText = Number(quantitys[i].innerText) + 1;
-
-            let cartItem = JSON.parse(product_in_cart[i]);
-            cartItem.quantity += 1;
-            product_in_cart[i] = JSON.stringify(cartItem);
-
-            localStorage.setItem("cart", JSON.stringify(product_in_cart));
-
-            cartCount();
-
-            window.location.href = "../cart.html";
-        });
+    
+    function add_button(){
+        const adds = document.getElementsByClassName("add");
+        const quantitys = document.getElementsByClassName("quantity");
+        for(let i = 0; i < adds.length; i++){
+            adds[i].addEventListener("click", () =>{
+                const product_in_cart = JSON.parse(localStorage.getItem("cart"));
+    
+                quantitys[i].innerText = Number(quantitys[i].innerText) + 1;
+    
+                let cartItem = JSON.parse(product_in_cart[i]);
+                cartItem.quantity += 1;
+                product_in_cart[i] = JSON.stringify(cartItem);
+    
+                localStorage.setItem("cart", JSON.stringify(product_in_cart));
+    
+                cartCount();
+    
+                window.location.href = "../cart.html";
+            });
+        }
     }
 
     //funkcija za refreshanje broja na kosarici
     function cartCount(){
         let counterForCart = 0;
-        for(let i = 0; i < product_in_cart.length; i++){
-            const item = JSON.parse(product_in_cart[i]);
+        const product_in_cart = JSON.parse(localStorage.getItem("cart"));
 
-            counterForCart += item.quantity;
+        if(localStorage.length == 0 || product_in_cart == 0){
+            counterForCart = 0;
+        }
+        else{
+            for(let i = 0; i < product_in_cart.length; i++){
+                const item = JSON.parse(product_in_cart[i]);
+    
+                counterForCart += item.quantity;
+            }
         }
 
         circle.innerHTML = counterForCart;
@@ -160,9 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function empty_cart(){
         document.getElementById("empty_cart").addEventListener("click", () =>{
-            const elements = document.getElementsByClassName("element");
-            const product_in_cart = JSON.parse(localStorage.getItem("cart"));
-
             localStorage.clear();
 
             
@@ -172,5 +176,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function total_price_update(){
+        const product_in_cart = JSON.parse(localStorage.getItem("cart"));
+        const total_price = document.getElementById("total_price");
+
+        if(localStorage.length == 0 || product_in_cart.length == 0){
+            total_price.innerText = "0.00€";
+        }
+        else{
+            let total_price_counter = 0;
+            for(let i = 0; i < product_in_cart.length; i++){
+                const item = JSON.parse(product_in_cart[i]);
+
+                total_price_counter += Number(item.price) * Number(item.quantity);
+            }
+
+            total_price.innerText = `${total_price_counter.toFixed(2)}€`;
+        }
+    }
+
+    loadFromLocalStorage();
+    add_button();
+    sub_button();
+    total_price_update();
     empty_cart();
 });

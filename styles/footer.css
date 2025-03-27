@@ -8,3 +8,47 @@
     background-color: var(--tamno_plava);
     border-radius: 20px;
 }
+
+#newsletter_section{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+#newsletter_section h2{
+    font-family: var(--bold);
+    color: var(--orange);
+    margin-bottom: 20px;
+}
+#label{
+    display: flex;
+    width: 100%;    
+}
+#mail{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid var(--orange);
+    padding: 10px;
+    outline: none;
+    caret-color: var(--tamno_plava);
+    background-color: var(--creamy);
+    color: var(--tamno_plava);
+}
+#mail_button{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    font-family: var(--bold);
+    color: var(--orange);
+    height: 100%;
+    background-color: var(--creamy);
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 5px 30px;
+}
