@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     function loadFromLocalStorage(){
-        let product_in_cart = JSON.parse(localStorage.getItem("cart"));
+        let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
         const cart_section = document.getElementById("cart_section");
 
-        if(localStorage.length == 0 || product_in_cart.length == 0){
+        if(product_in_cart.length == 0){
             const empty = document.createElement("h1");
             empty.textContent = "The cart is empty maybe try to buy something :D";
 
@@ -140,9 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
     //funkcija za refreshanje broja na kosarici
     function cartCount(){
         let counterForCart = 0;
-        const product_in_cart = JSON.parse(localStorage.getItem("cart"));
+        const product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        if(localStorage.length == 0 || product_in_cart == 0){
+        if(product_in_cart.length == 0){
             counterForCart = 0;
         }
         else{
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function empty_cart(){
         document.getElementById("empty_cart").addEventListener("click", () =>{
-            localStorage.clear();
+            localStorage.removeItem("cart");
 
             
             cartCount();
@@ -177,10 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function total_price_update(){
-        const product_in_cart = JSON.parse(localStorage.getItem("cart"));
+        const product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
         const total_price = document.getElementById("total_price");
 
-        if(localStorage.length == 0 || product_in_cart.length == 0){
+        if(product_in_cart.length == 0){
             total_price.innerText = "0.00€";
         }
         else{
