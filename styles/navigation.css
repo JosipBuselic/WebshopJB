@@ -122,7 +122,7 @@
     border-radius: 50%;
     justify-content: center;
     align-items: center;
-    font-size: 1.3vmin;
+    font-size: 12px;
     font-family: var(--bold);
     color: var(--orange);
     z-index: 999;
