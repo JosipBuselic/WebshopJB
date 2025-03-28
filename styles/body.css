@@ -4,7 +4,7 @@
     color: var(--tamno_plava);
     margin-top: 100px;
     margin-bottom: 10px;
-    font-size: 35px;
+    font-size: 4vmin;
 }
 .section h2 span{
     color: var(--orange);
@@ -98,7 +98,7 @@
     border-radius: 50px;
     text-align: center;
     align-content: center;
-    font-size: 15px;
+    font-size: 1.5vmin;
     font-family: var(--bold);
     color: var(--orange);
     z-index: 999;
@@ -143,7 +143,7 @@ video::-webkit-media-controls {
     transform: translate(-50%, -50%);
     font-family: var(--bold);
     color: var(--creamy);
-    font-size: 50px;
+    font-size: 5vmin;
     z-index: 1;
 }
 #quote span{
@@ -156,7 +156,7 @@ video::-webkit-media-controls {
     transform: translate(-5%,-15%);
     font-family: var(--bold);
     color: var(--watermark);
-    font-size: 40px;
+    font-size: 4vmin;
     z-index: 1;
 }
 
