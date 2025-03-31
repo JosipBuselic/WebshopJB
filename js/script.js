@@ -213,4 +213,16 @@ document.addEventListener("DOMContentLoaded", () =>{
         },300);
     })
 
+    // funckija pamti u local storagu u kojem smo categoriji
+    function categories_memory(){
+        const categories_links = document.getElementsByClassName("kategorije_link");
+        for(let i = 0; i < categories_links.length; i++){
+            categories_links[i].addEventListener("click", () =>{
+                localStorage.setItem("categorie", categories_links[i].innerText);
+            });
+        }
+    }
+    
+    categories_memory();
+
 });

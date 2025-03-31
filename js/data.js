@@ -2,7 +2,7 @@ export const data = {
     "website": "odjeca",
     "categories":[{
 
-        "name":"majice",
+        "name":"Majice",
         "products":[{
             "name": "Crna Majica",
             "image":"../images/products/majice/crna_majica.jpg",
@@ -36,7 +36,7 @@ export const data = {
     },
     {
 
-        "name":"hlace",
+        "name":"Hlače",
         "products":[{
             "name": "Bijele Hlače",
             "image":"../images/products/hlace/bijele_hlace.png",
@@ -70,7 +70,7 @@ export const data = {
     },
     {
 
-        "name":"kape",
+        "name":"Kape",
         "products":[{
 
             "name": "USA Kapa",
