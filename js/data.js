@@ -28,7 +28,7 @@ export const data = {
             "price": 29.99
         },
         {
-            "name": "Siva Majica",
+            "name": "Roza Majica",
             "image":"../images/products/majice/roza_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99
@@ -104,7 +104,7 @@ export const data = {
         }]
     },
     {
-        "name":"Trenike",
+        "name":"Trenirke",
         "products":[{
 
             "name": "Crna Trenirka",

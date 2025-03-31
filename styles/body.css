@@ -1,12 +1,12 @@
 
-.section h2{
+#section h2{
     font-family: var(--bold);
     color: var(--tamno_plava);
     margin-top: 100px;
     margin-bottom: 10px;
     font-size: 4vmin;
 }
-.section h2 span{
+#section h2 span{
     color: var(--orange);
 }
 .container_row{
