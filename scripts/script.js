@@ -225,4 +225,9 @@ document.addEventListener("DOMContentLoaded", () =>{
     
     categories_memory();
 
+    document.getElementById("sale_button").addEventListener("click", () => {
+        document.getElementById("secondBody_section").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
 });
