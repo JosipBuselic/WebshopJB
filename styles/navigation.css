@@ -144,7 +144,7 @@
     display: none;
     flex-direction: column;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 20px;
     opacity: 0;
     transition: all 0.1s ease-in-out;
 }
@@ -158,7 +158,7 @@
     text-decoration: none;
     color: var(--tamno_plava);
     font-family: var(--light);
-    font-size: 4vmin;
+    font-size: 3vmin;
     padding-bottom: 10px;
 }
 
