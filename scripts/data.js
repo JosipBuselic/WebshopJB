@@ -243,31 +243,31 @@ export const data = {
         "name":"Sportske Majice",
         "products":[{
 
-            "name": "Crvena kratke hlače",
+            "name": "Crvena sportska majica",
             "image":"../images/products/sportskeMajice/crvena_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99,
         },
         {
-            "name": "Crna kratke hlače",
+            "name": "Crna sportska majica",
             "image":"../images/products/sportskeMajice/crna_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99,
         },
         {
-            "name": "Narancasta kratke hlače",
+            "name": "Narancasta sportska majica",
             "image":"../images/products/sportskeMajice/narancasta_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99,
         },
         {
-            "name": "Zelena kratke hlače",
+            "name": "Zelena sportska majica",
             "image":"../images/products/sportskeMajice/zelena_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99,
         },
         {
-            "name": "Plava kratke hlače",
+            "name": "Plava sportska majica",
             "image":"../images/products/sportskeMajice/plava_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99,
