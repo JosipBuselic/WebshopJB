@@ -6,14 +6,12 @@ function loadPage(){
 
     const categorie = localStorage.getItem("categorie");
     const section = document.getElementById("section");
+    const containers = document.createElement("div");
+    containers.classList.add("containers");
+
+    section.appendChild(containers);
     for(let i = 0; i < data.categories.length; i++){
         if(data.categories[i].name == categorie){
-
-            for(let j = 0; j < (data.categories[i].products.length/3); j++){
-                const row_container = document.createElement("div");
-                row_container.classList.add("container_row");
-                section.appendChild(row_container);
-            }
 
             // h2 naslov
             const naslov = document.getElementById("section").querySelector("h2");
@@ -23,16 +21,39 @@ function loadPage(){
 
             naslov.append(span, kategorija);
 
-
-            const rows = document.getElementsByClassName("container_row");
             for(let j = 0; j < data.categories[i].products.length; j++){
-                let row = Math.floor(j / 3);
+                let big = j % 3;
+                let small = j % 2;
 
                 // container
                 const container = document.createElement("div");
                 container.classList.add("container");
 
-                rows[row].appendChild(container);
+                switch(big){
+                    case 0:
+                        container.classList.add("left");
+                        break;
+                    case 1:
+                        container.classList.add("center");
+                        break;
+                    case 2:
+                        container.classList.add("right");
+                        break;
+                    default:
+                        break;
+                }
+                switch(small){
+                    case 0:
+                        container.classList.add("left_mini");
+                        break;
+                    case 1:
+                        container.classList.add("right_mini");
+                        break;
+                    default:
+                        break;
+                }
+
+                containers.appendChild(container);
 
                 // img
                 const img = document.createElement("img");
@@ -78,12 +99,6 @@ function loadPage(){
                 about_product.appendChild(name);
                 about_product.appendChild(price);
                 
-                if(data.categories[i].products.length % 3 == 2 && data.categories[i].products.length - 1 == j){
-                    const container = document.createElement("div");
-                    container.classList.add("container");
-
-                    rows[row].appendChild(container);
-                }
             }
         }
     }
