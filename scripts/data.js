@@ -13,25 +13,25 @@ export const data = {
             "name": "Bijela Majica",
             "image":"../images/products/majice/bijela_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 35.99
         },
         {
             "name": "Zelena Majica",
             "image":"../images/products/majice/zelena_majica.jpg",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 25.99
         },
         {
             "name": "Siva Majica",
             "image":"../images/products/majice/siva_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 27.99
         },
         {
             "name": "Roza Majica",
             "image":"../images/products/majice/roza_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99
+            "price": 22.99
         }]
     },
     {
@@ -41,25 +41,25 @@ export const data = {
             "name": "Bijele Hlače",
             "image":"../images/products/hlace/bijele_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 39.99,
         },
         {
             "name": "Smede Hlače",
             "image":"../images/products/hlace/smede_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 44.99,
         },
         {
             "name": "Crne Hlače",
             "image":"../images/products/hlace/crne_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 49.99,
         },
         {
             "name": "Plave Hlače",
             "image":"../images/products/hlace/plave_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 39.99,
         },
         {
             "name": "Sive Hlače",
@@ -76,31 +76,31 @@ export const data = {
             "name": "USA Kapa",
             "image":"../images/products/kape/Usa_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 14.99,
         },
         {
             "name": "Plava Kapa",
             "image":"../images/products/kape/plava_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 14.99,
         },
         {
             "name": "Žuta Kapa",
             "image":"../images/products/kape/zuta_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 14.99,
         },
         {
             "name": "Crna Kapa",
             "image":"../images/products/kape/crna_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 14.99,
         },
         {
             "name": "Zelena Kapa",
             "image":"../images/products/kape/zelena_kapa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 14.99,
         }]
     },
     {
@@ -110,31 +110,31 @@ export const data = {
             "name": "Crna Trenirka",
             "image":"../images/products/trenirke/crna_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 49.99,
         },
         {
             "name": "Smeda Trenirka",
             "image":"../images/products/trenirke/smeda_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 69.99,
         },
         {
             "name": "Plava Trenirka",
             "image":"../images/products/trenirke/plava_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 69.99,
         },
         {
             "name": "Siva Trenirka",
             "image":"../images/products/trenirke/siva_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 54.99,
         },
         {
             "name": "Bijela Trenirka",
             "image":"../images/products/trenirke/bijela_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 69.99,
         }]
     },
     {
@@ -144,31 +144,31 @@ export const data = {
             "name": "Crna jakna",
             "image":"../images/products/jakne/crna_jakna.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 99.99,
         },
         {
             "name": "Bijela jakna",
             "image":"../images/products/jakne/bijela_jakna.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 94.99,
         },
         {
             "name": "Plava jakna",
             "image":"../images/products/jakne/plava_jakna.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 34.99,
         },
         {
             "name": "Smeđa jakna",
             "image":"../images/products/jakne/smeda_jakna.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 99.99,
         },
         {
             "name": "Zelena jakna",
             "image":"../images/products/jakne/zelena_jakna.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 99.99,
         }]
     },
     {
@@ -178,31 +178,31 @@ export const data = {
             "name": "Bijela dukserica",
             "image":"../images/products/dukserice/bijela_duksa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 44.99,
         },
         {
             "name": "Crna dukserica",
             "image":"../images/products/dukserice/crna_duksa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 44.99,
         },
         {
             "name": "Crvena dukserica",
             "image":"../images/products/dukserice/crvena_duksa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 24.99,
         },
         {
             "name": "Siva dukserica",
             "image":"../images/products/dukserice/siva_duksa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 49.99,
         },
         {
             "name": "Žuta dukserica",
             "image":"../images/products/dukserice/zuta_duksa.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 59.99,
         }]
     },
     {
