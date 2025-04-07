@@ -153,6 +153,7 @@ video::-webkit-media-controls {
     object-fit: cover;
     z-index: -1;
     border-radius: 20px;
+    object-position: bottom;
 }
 
 #quote{
