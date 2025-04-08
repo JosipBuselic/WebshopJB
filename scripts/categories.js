@@ -94,7 +94,7 @@ function loadPage(){
                 const price = document.createElement("h4");
 
                 name.innerText = data.categories[i].products[j].name;
-                price.innerText = data.categories[i].products[j].price;
+                price.innerText = data.categories[i].products[j].price + "€";
 
                 about_product.appendChild(name);
                 about_product.appendChild(price);

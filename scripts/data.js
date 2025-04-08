@@ -113,7 +113,7 @@ export const data = {
             "price": 49.99,
         },
         {
-            "name": "Smeda Trenirka",
+            "name": "Smeđa Trenirka",
             "image":"../images/products/trenirke/smeda_trenirka.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 69.99,
@@ -246,25 +246,25 @@ export const data = {
             "name": "Crvena sportska majica",
             "image":"../images/products/sportskeMajice/crvena_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 49.99,
         },
         {
             "name": "Crna sportska majica",
             "image":"../images/products/sportskeMajice/crna_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 49.99,
         },
         {
             "name": "Narancasta sportska majica",
             "image":"../images/products/sportskeMajice/narancasta_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 54.99,
         },
         {
             "name": "Zelena sportska majica",
             "image":"../images/products/sportskeMajice/zelena_sportskaMajica.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 29.99,
+            "price": 59.99,
         },
         {
             "name": "Plava sportska majica",
@@ -320,25 +320,25 @@ export const data = {
             "name": "Plavo odijelo",
             "image":"../images/products/odijela/plavo_odijelo.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 999.99,
+            "price": 799.99,
         },
         {
             "name": "Sivo odijelo",
             "image":"../images/products/odijela/sivo_odijelo.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 999.99,
+            "price": 899.99,
         },
         {
            "name": "Smeđe odijelo",
             "image":"../images/products/odijela/smede_odijelo.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 999.99,
+            "price": 399.99,
         },
         {
             "name": "Zeleno odijelo",
             "image":"../images/products/odijela/zeleno_odijelo.png",
             "size":["XS","S","M","L","XL","XXL"],
-            "price": 999.99,
+            "price": 1399.99,
         }]
     }]
 }
