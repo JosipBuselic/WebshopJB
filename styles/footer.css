@@ -6,6 +6,7 @@
     bottom: 0;
     width: 100%;
     height: 400px;
+    margin-top: 100px;
     background-color: var(--tamno_plava);
     border-radius: 20px;
 }
