@@ -21,13 +21,13 @@
     justify-self: center;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
 }
 
 .container_slider{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 25%;
     position: relative;
 }
 
@@ -184,6 +184,9 @@ video::-webkit-media-controls {
     .containers{
         grid-template-columns: repeat(2, 1fr);
     }
+    .container{
+        width: 80%;
+    }
     .right_mini{
         justify-self: right;
     }
@@ -196,5 +199,8 @@ video::-webkit-media-controls {
         color: var(--tamno_plava);
         margin-top: 10px;
         font-size: 1rem;
+    }
+    .container_slider{
+        width: 30%;
     }
 }
