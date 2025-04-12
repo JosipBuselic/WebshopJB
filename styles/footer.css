@@ -43,7 +43,7 @@
     color: var(--creamy);
     font-family: var(--light);
     padding-bottom: 10px;
-    font-size: 2vmin;
+    font-size: 1rem;
     transition: color 0.1s ease-in-out;
 }
 .link_footer a:hover{
@@ -66,5 +66,5 @@
     margin-top: 30px;
     font-family: var(--light);
     color: var(--creamy);
-    font-size: 3vmin;
+    font-size: 1.5rem;
 }

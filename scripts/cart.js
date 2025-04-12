@@ -195,9 +195,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function alert_buy(){
+        const buy_button = document.querySelector("#buy");
+
+        buy_button.addEventListener("click", () =>{
+            alert("Hvala na kupnji!")
+        })
+
+    }
+    
     loadFromLocalStorage();
     add_button();
     sub_button();
     total_price_update();
     empty_cart();
+    alert_buy();
 });

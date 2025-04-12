@@ -61,6 +61,7 @@
     font-family: var(--light);
     color: var(--tamno_plava);
     margin-top: 10px;
+    font-size: 1.2rem;
 }
 
 .size_buttons{
@@ -153,7 +154,6 @@ video::-webkit-media-controls {
     object-fit: cover;
     z-index: -1;
     border-radius: 20px;
-    object-position: bottom;
 }
 
 #quote{
@@ -189,5 +189,12 @@ video::-webkit-media-controls {
     }
     .left_mini{
         justify-self: left;
+    }
+
+    .about_product h4{
+        font-family: var(--light);
+        color: var(--tamno_plava);
+        margin-top: 10px;
+        font-size: 1rem;
     }
 }

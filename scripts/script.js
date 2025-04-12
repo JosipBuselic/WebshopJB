@@ -180,7 +180,13 @@ document.addEventListener("DOMContentLoaded", () =>{
         const kategorije_links = document.getElementById("kategorije_links");
         const black_screen = document.getElementById("whole_screen");
 
-        kategorije_section.style.width = "20%";
+        if(window.matchMedia("(max-width: 1024px)").matches){
+            kategorije_section.style.width = "30%"
+        }
+        else{
+            kategorije_section.style.width = "20%";
+        }
+
         kategorije_links.style.display = "flex";
         black_screen.style.display = "block";
         setTimeout(() => {
@@ -224,10 +230,4 @@ document.addEventListener("DOMContentLoaded", () =>{
     }
     
     categories_memory();
-
-    document.getElementById("sale_button").addEventListener("click", () => {
-        document.getElementById("secondBody_section").scrollIntoView({
-            behavior: "smooth"
-        });
-    });
 });
