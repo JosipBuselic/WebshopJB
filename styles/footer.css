@@ -43,7 +43,7 @@
     color: var(--creamy);
     font-family: var(--light);
     padding-bottom: 10px;
-    font-size: 1rem;
+    font-size: 1.3rem;
     transition: color 0.1s ease-in-out;
 }
 .link_footer a:hover{
@@ -67,4 +67,20 @@
     font-family: var(--light);
     color: var(--creamy);
     font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 1024px){
+    .link_footer a{
+        font-size: 1.1rem;
+    }
+
+    #icons2 img{
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    }
+
+    #credits h4{
+        font-size: 1.3rem;
+    }
 }
