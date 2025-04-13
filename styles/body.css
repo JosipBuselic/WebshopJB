@@ -24,13 +24,6 @@
     width: 70%;
 }
 
-.container_slider{
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    position: relative;
-}
-
 .left{
     justify-self: left;
 }
@@ -199,8 +192,5 @@ video::-webkit-media-controls {
         color: var(--tamno_plava);
         margin-top: 10px;
         font-size: 1rem;
-    }
-    .container_slider{
-        width: 30%;
     }
 }
