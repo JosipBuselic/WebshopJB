@@ -91,8 +91,8 @@ document.addEventListener("DOMContentLoaded", () =>{
             loader.style.border = '2px solid #27445D';
             loader.style.borderTop = '2px solid transparent';
             loader.style.borderRadius = '50%';
-            loader.style.width = '10px';
-            loader.style.height = '10px';
+            loader.style.width = '1.5vmin';
+            loader.style.height = '1.5vmin';
             loader.style.animation = 'spin 0.5s linear infinite';
     
             // Nakon 500ms, zamijeni loader sa check ikonom i ažuriraj krug

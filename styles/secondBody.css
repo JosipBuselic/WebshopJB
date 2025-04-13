@@ -21,6 +21,14 @@
     margin-top: 50px;
     transition: opacity 2s ease;
 }
+
+.container_slider{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    position: relative;
+}
+
 #selection{
     display: flex;
     justify-content: center;
@@ -53,4 +61,21 @@
 
 .circle_selection:hover{
     background-color: var(--tamno_plava) !important;
+}
+
+@media only screen and (max-width: 1024px){
+    .container_slider{
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .row_collection{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container_slider{
+        width: 70%;
+        margin-top: 30px;
+    }
 }

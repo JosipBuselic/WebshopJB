@@ -110,3 +110,13 @@
     font-family: var(--bold);
     color: var(--tamno_plava);
 }
+
+@media only screen and (max-width: 768px){
+    .product_info h3{
+        font-size: 1rem;
+    }
+
+    .product_quantity button{
+        padding: 5px;
+    }
+}
