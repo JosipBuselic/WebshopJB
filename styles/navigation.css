@@ -285,5 +285,7 @@
 
     #sale_button{
         font-size: 2vmin;
+        margin-top: 10px;
+        padding: 5px;
     }
 }
