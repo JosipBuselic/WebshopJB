@@ -5,7 +5,7 @@ export const data = {
         "name":"Majice",
         "products":[{
             "name": "Crna Majica",
-            "image":"../images/products/majice/crna_majica.jpg",
+            "image":"../images/products/majice/crna_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 29.99
         },
@@ -17,7 +17,7 @@ export const data = {
         },
         {
             "name": "Zelena Majica",
-            "image":"../images/products/majice/zelena_majica.jpg",
+            "image":"../images/products/majice/zelena_majica.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 25.99
         },
@@ -44,7 +44,7 @@ export const data = {
             "price": 39.99,
         },
         {
-            "name": "Smede Hlače",
+            "name": "Smeđe Hlače",
             "image":"../images/products/hlace/smede_hlace.png",
             "size":["XS","S","M","L","XL","XXL"],
             "price": 44.99,
