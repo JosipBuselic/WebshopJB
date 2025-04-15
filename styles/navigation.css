@@ -60,6 +60,8 @@
 
 #lower_nav{
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     margin-top: 20px;
 }
@@ -287,5 +289,8 @@
         font-size: 2vmin;
         margin-top: 10px;
         padding: 5px;
+    }
+    .links{
+        flex-direction: column;
     }
 }

@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             const black_screen = document.getElementById("whole_screen");
     
             if(window.matchMedia("(max-width: 1024px)").matches){
-                kategorije_section.style.width = "30%"
+                kategorije_section.style.width = "40%"
             }
             else{
                 kategorije_section.style.width = "20%";

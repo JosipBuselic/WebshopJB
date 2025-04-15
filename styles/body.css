@@ -4,7 +4,7 @@
     color: var(--tamno_plava);
     margin-top: 100px;
     margin-bottom: 10px;
-    font-size: 4vmin;
+    font-size: 2rem;
     margin-bottom: 40px;
 }
 #section h2 span{
@@ -14,6 +14,7 @@
 .containers{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    justify-self: center;
     row-gap: 50px;
 }
 .container{
@@ -156,7 +157,7 @@ video::-webkit-media-controls {
     transform: translate(-50%, -50%);
     font-family: var(--bold);
     color: var(--creamy);
-    font-size: 5vmin;
+    font-size: 3rem;
     z-index: 1;
 }
 #quote span{
@@ -192,5 +193,19 @@ video::-webkit-media-controls {
         color: var(--tamno_plava);
         margin-top: 10px;
         font-size: 1rem;
+    }
+    
+    #quote{
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .containers{
+        grid-template-columns: repeat(1, 1fr);
+        width: 70%;
+    }
+    .container{
+        justify-self: center;
     }
 }
