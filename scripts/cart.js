@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // loadam sa localstoragea sve informacije te ih stavljam vizualno da korisnik moze vidjeti sto je sve stavio u cart
     function loadFromLocalStorage(){
         let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
         const cart_section = document.getElementById("cart_section");
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 childdiv1.appendChild(size);
                 childdiv1.appendChild(price);
     
-                // kreiram dugma koja ce nam reci quantity za neki item koliko smo ga uzeli
+                // kreiram button-e koja ce nam reci quantity za neki item koliko smo ga uzeli
                 const sub = document.createElement("button");
                 const quantity = document.createElement("h3");
                 const add = document.createElement("button");
@@ -61,6 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 quantity.classList.add("quantity");
                 add.classList.add("add");
                 
+                // morao sam staviti atribut data-index za svaki button jer kad brisem elemente u ovisnosti o i u for petlji u funkciji sub_button
+                // te nece raditi
                 sub.setAttribute("data-index", i);
 
                 childdiv2.appendChild(sub);
@@ -71,10 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
+    // ovdje se nalazi funkcija 
     function sub_button(){
         const subs = document.getElementsByClassName("sub");
         for(let i = 0; i < subs.length; i++){
             subs[i].addEventListener("click", (e) => {
+
+                // uzimam data index od tog button-a te je to zapravo index od cijelog elementa
                 const index = parseInt(e.target.getAttribute("data-index"));
                 let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
     
@@ -84,13 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(item.quantity <= 0){
                     product_in_cart.splice(index, 1);
                     document.querySelectorAll(".element")[index].remove();
+
+                    // ako se dogodi da izbrisem cijeli element kad pritisnemo sub_button onda cemo refreshati sve indexe sa ovom funkcijom
                     refreshIndex();
 
                 } else {
+                    // ovdje samo smanjujemo quantity i to prikazujemo
                     document.getElementsByClassName("quantity")[index].innerText = item.quantity;
                     product_in_cart[index] = JSON.stringify(item);
                 }
-    
+                
+                // sve stavljam u local storage
                 localStorage.setItem("cart", JSON.stringify(product_in_cart));
                 cartCount();
                 total_price_update();
@@ -102,11 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // refresham data-index od svakog buttona
     function refreshIndex(){
         const subs = document.querySelectorAll(".sub");
-        subs.forEach((btn, idx) => btn.setAttribute("data-index", idx));
+        subs.forEach((btn, i) => btn.setAttribute("data-index", i));
     }
     
+    // add button samo dodaje jos u quantity 
     function add_button(){
         const adds = document.getElementsByClassName("add");
         const quantitys = document.getElementsByClassName("quantity");  
@@ -153,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
+    // ovo je button empty cart koji prilikom pritiska brise cijeli cart 
     function empty_cart(){
         document.getElementById("empty_cart").addEventListener("click", () =>{
             localStorage.removeItem("cart");
@@ -165,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // ispisuje ukupnu cijenu svih proizvoda
     function total_price_update(){
         const product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
         const total_price = document.getElementById("total_price");
@@ -184,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // kada pritisnem alert_buy kaze korisniku da je kupio proizvode iz kosarice
     function alert_buy(){
         const buy_button = document.querySelector("#buy");
 
@@ -193,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    // ako je kosarica empty onda nam ova funkcija omogucuje da ispise poruku koja govori korisniku da je kosarica prazna
     function isEmpty(){
         const product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
         if(product_in_cart.length == 0){

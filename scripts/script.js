@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () =>{
     //---- Scroll top button --------
     window.addEventListener("scroll", () => {
         const button = document.getElementById("top_button");
+        
+        // ako skrolam vise od 100 px onda mi se prikaze dugme
         if (window.scrollY > 100) {
             button.style.display = "block";
         } else {
@@ -12,21 +14,31 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
     });
 
+    // kad pritisnem dugme vraca me na vrh stranice
     document.getElementById("top_button").addEventListener("click", () => {
         window.scrollTo({top: 0, behavior: "smooth"});
     });
 
 
 
-    // elements in local storage
+    // elementi u local storage-u
     const sizes = document.getElementsByClassName("size");
+
+    // uzimam sve sto se nalazi u cartu
     let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // iteriram kroz sve button-e
     for(let i = 0; i < sizes.length; i++){
+
+        // dodajem na svaki eventlistener
         sizes[i].addEventListener("click", () => {
+            // nacin na koje je ovo implementirano je da ako je button koji je bio pritisnut pod brojem 7 podjelim sa 6 jer svaka slika ima 6
+            // button-a i onda uzmem donju granicu tog decinalnog broja te vidim o kojem proizvodu se radi
             let number = Math.floor(i/6);
             
             const productsImg = document.getElementsByClassName("product_picture");
 
+            //ovdje obradujem sve sto ce se nalaziti u cartu radim objekt sa razlicitim specifikacijama
             for(let j = 0; j < data.categories.length; j++){
                 for(let k = 0; k < data.categories[j].products.length; k++){
                     if(productsImg[number].src.includes(data.categories[j].products[k].image.split("/")[4])){
@@ -37,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () =>{
                         image:`${data.categories[j].products[k].image}`,
                         quantity: 1}
 
-                        // odradujemo quantity
+                        // odradujem quantity
                         const itemIndex = product_in_cart.findIndex(item => {
                             const parsedItem = JSON.parse(item);
                             return parsedItem.name === object.name &&
@@ -56,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () =>{
                 }
             }
 
+            // stavljam u local storage
             localStorage.setItem("cart", JSON.stringify(product_in_cart));
         });
     }
@@ -209,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         },300);
     });
 
+    // ovaj dio stavlja cijeli screen da bude zatamljeniji dok su kategorije otvorene
     document.getElementById("whole_screen").addEventListener("click", () =>{
         const kategorije_section = document.getElementById("kategorije_section");
         const kategorije_links = document.getElementById("kategorije_links");
