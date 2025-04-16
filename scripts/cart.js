@@ -4,13 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
         const cart_section = document.getElementById("cart_section");
 
-        if(product_in_cart.length == 0){
-            const empty = document.createElement("h1");
-            empty.textContent = "The cart is empty maybe try to buy something :D";
-
-            cart_section.appendChild(empty);
-        }
-        else{
+        if(product_in_cart.length != 0){
 
 
             for(let i = 0; i < product_in_cart.length; i++){
@@ -66,7 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 sub.classList.add("sub");
                 quantity.classList.add("quantity");
                 add.classList.add("add");
-    
+                
+                sub.setAttribute("data-index", i);
+
                 childdiv2.appendChild(sub);
                 childdiv2.appendChild(quantity);
                 childdiv2.appendChild(add);
@@ -77,62 +73,55 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function sub_button(){
         const subs = document.getElementsByClassName("sub");
-        const quantitys = document.getElementsByClassName("quantity");
         for(let i = 0; i < subs.length; i++){
-            subs[i].addEventListener("click", () =>{
+            subs[i].addEventListener("click", (e) => {
+                const index = parseInt(e.target.getAttribute("data-index"));
+                let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+                let item = JSON.parse(product_in_cart[index]);
+                item.quantity -= 1;
+    
+                if(item.quantity <= 0){
+                    product_in_cart.splice(index, 1);
+                    document.querySelectorAll(".element")[index].remove();
+                    refreshIndex();
 
-                const product_in_cart = JSON.parse(localStorage.getItem("cart"));
-
-                console.log(i);
-                quantitys[i].innerText = Number(quantitys[i].innerText) - 1;
-                
-
-                if(quantitys[i].innerText == 0){
-                    
-                    for(let j = i; j < product_in_cart.length && j + 1 != product_in_cart.length; j++){
-                        let help = product_in_cart[j];
-                        product_in_cart[j] = product_in_cart[j + 1];
-                        product_in_cart[j + 1] = help;
-                        
-                    }   
-                    
-                    product_in_cart.pop();
-
+                } else {
+                    document.getElementsByClassName("quantity")[index].innerText = item.quantity;
+                    product_in_cart[index] = JSON.stringify(item);
                 }
-                else{
-                    let cartItem = JSON.parse(product_in_cart[i]);
-                    cartItem.quantity -= 1;
-                    product_in_cart[i] = JSON.stringify(cartItem);
-                }
-
-
+    
                 localStorage.setItem("cart", JSON.stringify(product_in_cart));
-
                 cartCount();
+                total_price_update();
 
-                window.location.href = "../cart.html"; // dodao sam kad se kliknu da se mora ucitati opet site
+                if(product_in_cart.length == 0){
+                    window.location.href = "../cart.html"
+                }
             });
         }
+    }
+
+    function refreshIndex(){
+        const subs = document.querySelectorAll(".sub");
+        subs.forEach((btn, idx) => btn.setAttribute("data-index", idx));
     }
     
     function add_button(){
         const adds = document.getElementsByClassName("add");
-        const quantitys = document.getElementsByClassName("quantity");
+        const quantitys = document.getElementsByClassName("quantity");  
         for(let i = 0; i < adds.length; i++){
-            adds[i].addEventListener("click", () =>{
-                const product_in_cart = JSON.parse(localStorage.getItem("cart"));
+            adds[i].addEventListener("click", () => {
+                let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
+                let item = JSON.parse(product_in_cart[i]);
     
-                quantitys[i].innerText = Number(quantitys[i].innerText) + 1;
+                item.quantity += 1;
+                quantitys[i].innerText = item.quantity;
     
-                let cartItem = JSON.parse(product_in_cart[i]);
-                cartItem.quantity += 1;
-                product_in_cart[i] = JSON.stringify(cartItem);
-    
+                product_in_cart[i] = JSON.stringify(item);
                 localStorage.setItem("cart", JSON.stringify(product_in_cart));
-    
                 cartCount();
-    
-                window.location.href = "../cart.html";
+                total_price_update();
             });
         }
     }
@@ -203,7 +192,18 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
     }
+
+    function isEmpty(){
+        const product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if(product_in_cart.length == 0){
+            const empty = document.createElement("h1");
+            empty.textContent = "The cart is empty maybe try to buy something :D";
+
+            cart_section.appendChild(empty);
+        }
+    }
     
+    isEmpty();
     loadFromLocalStorage();
     add_button();
     sub_button();
