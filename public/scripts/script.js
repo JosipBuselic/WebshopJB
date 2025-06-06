@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             //ovdje obradujem sve sto ce se nalaziti u cartu radim objekt sa razlicitim specifikacijama
             for(let j = 0; j < data.categories.length; j++){
                 for(let k = 0; k < data.categories[j].products.length; k++){
-                    if(productsImg[number].src.includes(data.categories[j].products[k].image.split("/")[4])){
+                    if(productsImg[number].src.includes(data.categories[j].products[k].image.split("/")[3])){
 
                         let object = {name: `${data.categories[j].products[k].name}`,
                         size: `${sizes[i].textContent}`,
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             for(let j = 0; j < product_in_cart.length; j++){
                 const item = JSON.parse(product_in_cart[j]);
-                if(product_picture[i].src.includes(item.image.split("/")[4])){
+                if(product_picture[i].src.includes(item.image.split("/")[3])){
                     counter += item.quantity;
                 }
             }
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             
             for(let j = 0; j < product_in_cart.length; j++){
                 const item = JSON.parse(product_in_cart[j]);
-                if(product_picture[number].src.includes(item.image.split("/")[4])){
+                if(product_picture[number].src.includes(item.image.split("/")[3])){
                     counter += item.quantity;
                 }
             }

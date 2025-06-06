@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 total_price_update();
 
                 if(product_in_cart.length == 0){
-                    window.location.href = "../cart.html"
+                    window.location.href = "cart.html"
                 }
             });
         }
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             cartCount();
 
-            window.location.href = "../cart.html";
+            window.location.href = "cart.html";
         });
     }
 
