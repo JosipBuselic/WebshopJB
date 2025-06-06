@@ -1,4 +1,4 @@
-import { data } from './data.js';
+import { data } from '../../data/data.js';
 
 document.addEventListener("DOMContentLoaded", () =>{
     

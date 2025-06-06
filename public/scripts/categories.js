@@ -1,4 +1,4 @@
-import { data } from './data.js';
+import { data } from '../../data/data.js';
 
 
 // ovdje kada pritsinem na odredenu kategoriju stvorim sve proizovde iz te kategorije da nestavramo vise html datoteka
