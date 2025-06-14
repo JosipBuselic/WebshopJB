@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/J&B_logo.png">
+    <title>J&B cart</title>
+    <link rel="stylesheet" href="/styles/navigation.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/cart.css">
+    <script type="module" src="/scripts/script.js"></script>
+    <script type="module" src="/scripts/cart.js"></script>
+</head>
+<body>
+    <button id="top_button"><img src="images/arrow.svg" alt=""></button>
+
+    <div id="whole_screen"></div>
+    <%- include("partials/nav_kategorije") %>
+
+   <%- include("partials/nav") %>
+   <div id="cart_section">
+        <div id="head_cart">
+            <h2><span>&</span> Cart</h2>
+            <div id="buttons_cart">
+                <button id="empty_cart">Empty cart</button>
+                <div>
+                    <h3 id="total_price">0.00€</h3>
+                    <button id="buy">Buy</button>
+                </div>
+            </div>
+        </div>
+   </div>
+    
+</body>
+</html>

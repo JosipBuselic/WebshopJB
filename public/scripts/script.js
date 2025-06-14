@@ -1,4 +1,4 @@
-import { data } from '../../data/data.js';
+
 
 document.addEventListener("DOMContentLoaded", () =>{
     
@@ -20,140 +20,135 @@ document.addEventListener("DOMContentLoaded", () =>{
     });
 
 
+    function sizeButtons(){
 
-    // elementi u local storage-u
-    const sizes = document.getElementsByClassName("size");
+        const sizes = document.getElementsByClassName("size");
 
-    // uzimam sve sto se nalazi u cartu
-    let product_in_cart = JSON.parse(localStorage.getItem("cart")) || [];
+        // iteriram kroz sve button-e
+        for(let i = 0; i < sizes.length; i++){
 
-    // iteriram kroz sve button-e
-    for(let i = 0; i < sizes.length; i++){
 
-        // dodajem na svaki eventlistener
-        sizes[i].addEventListener("click", () => {
-            // nacin na koje je ovo implementirano je da ako je button koji je bio pritisnut pod brojem 7 podjelim sa 6 jer svaka slika ima 6
-            // button-a i onda uzmem donju granicu tog decinalnog broja te vidim o kojem proizvodu se radi
-            let number = Math.floor(i/6);
-            
-            const productsImg = document.getElementsByClassName("product_picture");
+                sizes[i].addEventListener("click", async () => {
 
-            //ovdje obradujem sve sto ce se nalaziti u cartu radim objekt sa razlicitim specifikacijama
-            for(let j = 0; j < data.categories.length; j++){
-                for(let k = 0; k < data.categories[j].products.length; k++){
-                    if(productsImg[number].src.includes(data.categories[j].products[k].image.split("/")[3])){
+                    const container = sizes[i].closest(".container");
+                    const id = container ? container.getAttribute("data-id") : null;
+                    console.log("Clicked size index:", i, "Container ID:", id);
 
-                        let object = {name: `${data.categories[j].products[k].name}`,
-                        size: `${sizes[i].textContent}`,
-                        price: `${data.categories[j].products[k].price}`,
-                        image:`${data.categories[j].products[k].image}`,
-                        quantity: 1}
-
-                        // odradujem quantity
-                        const itemIndex = product_in_cart.findIndex(item => {
-                            const parsedItem = JSON.parse(item);
-                            return parsedItem.name === object.name &&
-                                   parsedItem.size === object.size;
-                        });
-
-                        if(itemIndex == -1){
-                            product_in_cart.push(JSON.stringify(object));
-                        }
-                        else{
-                            let cartItem = JSON.parse(product_in_cart[itemIndex]);
-                            cartItem.quantity += 1;
-                            product_in_cart[itemIndex] = JSON.stringify(cartItem);
-                        }
+                    if (!id) {
+                        console.error("Data-id attribute not found on container!");
+                        return;
                     }
-                }
-            }
 
-            // stavljam u local storage
-            localStorage.setItem("cart", JSON.stringify(product_in_cart));
-        });
-    }
+                    const response = await fetch(`/cart/add/${id}`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ size: i % 6 }),
+                    });
 
-
-    // KOŠARICA LOCAL STORAGE
-    let counterForCart = 0;
-    for(let i = 0; i < product_in_cart.length; i++){
-        const item = JSON.parse(product_in_cart[i]);
-
-        counterForCart += item.quantity;
-    }
-
-    circle.innerHTML = counterForCart;
-    
-    if (counterForCart != 0) {
-        circle.style.display = "flex";
-        circle.style.textAlign = "center";
-    }
-    
-    const sizeElements = document.getElementsByClassName("size");
-
-    for (let i = 0; i < sizeElements.length; i++) {
-        sizeElements[i].addEventListener("click", () => {
-            const circle = document.getElementById("circle");
-    
-            let previousSize = sizeElements[i].innerHTML;
-    
-            // Prikaz loadera
-            sizeElements[i].innerHTML = '<div class="loader"></div>';
-            const loader = sizeElements[i].querySelector(".loader");
-    
-            loader.style.border = '2px solid #27445D';
-            loader.style.borderTop = '2px solid transparent';
-            loader.style.borderRadius = '50%';
-            loader.style.width = '1vmin';
-            loader.style.height = '1vmin';
-            loader.style.animation = 'spin 0.5s linear infinite';
-    
-            // Nakon 500ms, zamijeni loader sa check ikonom i ažuriraj krug
-            setTimeout(() => {
-                sizeElements[i].innerHTML = '<img src="images/icon_check.png" alt="" class="check">';
-                const check = sizeElements[i].querySelector(".check");
-    
-                check.style.position = "absolute";
-                check.style.objectFit = "contain";
-                check.style.width = "90%";
-                check.style.height = "60%";
+                    if (!response.ok) {
+                        console.error("Fetch error:", response.status, response.statusText);
+                    } else {
+                        const data = await response.json();
+                        console.log("Response:", data);
+                    }
 
 
-                counterForCart = 0;
-                for(let i = 0; i < product_in_cart.length; i++){
-                    const item = JSON.parse(product_in_cart[i]);
+            });
+        }
 
-                    counterForCart += item.quantity;
-                }
-
-                circle.innerHTML = counterForCart;
-                
-                if (counterForCart != 0) {
-                    circle.style.display = "flex";
-                    circle.style.textAlign = "center";
-                }
-
-    
-                // Vrati izvorni tekst nakon dodatnih 300ms
+        for (let i = 0; i < sizes.length; i++) {
+            sizes[i].addEventListener("click", () => {
+        
+                let previousSize = sizes[i].innerHTML;
+        
+                // Prikaz loadera
+                sizes[i].innerHTML = '<div class="loader"></div>';
+                const loader = sizes[i].querySelector(".loader");
+        
+                loader.style.border = '2px solid #27445D';
+                loader.style.borderTop = '2px solid transparent';
+                loader.style.borderRadius = '50%';
+                loader.style.width = '1vmin';
+                loader.style.height = '1vmin';
+                loader.style.animation = 'spin 0.5s linear infinite';
+        
+                // Nakon 500ms, zamijeni loader sa check ikonom i ažuriraj krug
                 setTimeout(() => {
-                    sizeElements[i].innerHTML = previousSize;
-                }, 300);
-            }, 500);
-        });
+                    sizes[i].innerHTML = '<img src="/images/icon_check.png" alt="" class="check">';
+                    const check = sizes[i].querySelector(".check");
+        
+                    check.style.position = "absolute";
+                    check.style.objectFit = "contain";
+                    check.style.width = "90%";
+                    check.style.height = "60%";
+
+
+                    updateCart()
+                    updateCounters()
+        
+                    // Vrati izvorni tekst nakon dodatnih 300ms
+                    setTimeout(() => {
+                        sizes[i].innerHTML = previousSize;
+                    }, 300);
+                }, 500);
+            });
+        }
+
     }
+
+    const circle = document.getElementById("circle");
+
+    async function updateCart(){
+
+        const res = await fetch('/cart/number', {
+            method: "GET"
+        });
+
+        if(!res.ok) throw new Error("nije dobro")
+
+        const numberInCart = await res.json();
+        console.log(numberInCart.broj);
+
+        const circle = document.getElementById("circle");
+
+        if (!circle) {
+            console.warn("No element with ID 'circle' found in DOM.");
+            return;
+        }
+
+        circle.innerHTML = numberInCart.broj;
+
+        if (numberInCart.broj != 0) {
+            circle.style.display = "flex";
+            circle.style.textAlign = "center";
+        }
+
+    }
+    
 
 
     //----- Counter for added item -----
     const counters = document.getElementsByClassName("counter");
     const product_picture = document.getElementsByClassName("product_picture");
 
-    function updateCounters(){  
+    async function updateCounters(){  
+
+        const res = await fetch("/cart/getAll", {
+            method: "GET"
+        })
+
+        if(!res.ok) throw new Error("nije dobro")
+        const data = await res.json()
+
+
         for(let i = 0; i < counters.length; i++){
             let counter = 0;
 
-            for(let j = 0; j < product_in_cart.length; j++){
-                const item = JSON.parse(product_in_cart[j]);
-                if(product_picture[i].src.includes(item.image.split("/")[3])){
+            for(let j = 0; j < data.length; j++){
+                const item = data[j];
+                if(product_picture[i].src.includes(item.image.split("/")[4])){
                     counter += item.quantity;
                 }
             }
@@ -164,63 +159,85 @@ document.addEventListener("DOMContentLoaded", () =>{
             }
         }
     }
-    for(let i = 0; i < sizeElements.length; i++){
-        sizeElements[i].addEventListener("click", () => {
-            let number = Math.floor(i/6);
-            let counter = 0;
-            
-            for(let j = 0; j < product_in_cart.length; j++){
-                const item = JSON.parse(product_in_cart[j]);
-                if(product_picture[number].src.includes(item.image.split("/")[3])){
-                    counter += item.quantity;
-                }
-            }
+
+    updateCart()
+    updateCounters()
+
+    const kategorijeLink = document.querySelector(".kategorije");
         
-            setTimeout(() => {
-                counters[number].innerHTML = counter;
-                if(counters[number].innerHTML != 0){
-                    counters[number].style.display = "block";
+    if (kategorijeLink) {
+        kategorijeLink.addEventListener("click", async (event) => {
+            event.preventDefault();
+            console.log("Klik na kategorije!");
+                
+            try {
+                const res = await fetch("/home/getCategories",{
+                    method: "GET"
+                });
+                if(!res.ok) throw new Error("Network was not ok");
+                const categories = await res.json();
+
+                const kategorije_section = document.getElementById("kategorije_section");
+                const kategorije_links = document.getElementById("kategorije_links");
+                const black_screen = document.getElementById("whole_screen");
+
+                // Čistimo stare linkove da ne dupliciramo
+                kategorije_links.innerHTML = "";
+                console.log(categories)
+
+                for(let i in categories){
+                    const link = document.createElement("li");
+                    link.classList.add("kategorije_link");
+
+
+                    const a = document.createElement("a");
+                    a.innerText = categories[i].name;
+                    a.href = `/home/getProducts?id=${i}`;
+
+                    link.appendChild(a);
+                    kategorije_links.appendChild(link);
                 }
-            },500);
-        });
-    }
+            
+                if(window.matchMedia("(max-width: 1024px)").matches){
+                    kategorije_section.style.width = "40%";
+                } else {
+                    kategorije_section.style.width = "20%";
+                }
+            
+                kategorije_links.style.display = "flex";
+                black_screen.style.display = "block";
+                setTimeout(() => {
+                    kategorije_links.style.opacity = "1";
+                }, 300);
+                } catch(error) {
+                    console.error("Greška pri učitavanju kategorija:", error);
+                    alert("Došlo je do greške prilikom učitavanja kategorija.");
+                }
+            });
+        } else {
+            console.log("Element sa klasom '.kategorije' nije pronađen.");
+        }
 
-    updateCounters();
+   
 
-    // ----- Kategorije tab ----- 
-    document.querySelectorAll(".kategorije").forEach((kat)=>{
-        kat.addEventListener("click", () =>{
-            const kategorije_section = document.getElementById("kategorije_section");
-            const kategorije_links = document.getElementById("kategorije_links");
-            const black_screen = document.getElementById("whole_screen");
-    
-            if(window.matchMedia("(max-width: 1024px)").matches){
-                kategorije_section.style.width = "40%"
-            }
-            else{
-                kategorije_section.style.width = "20%";
-            }
-    
-            kategorije_links.style.display = "flex";
-            black_screen.style.display = "block";
-            setTimeout(() => {
-                kategorije_links.style.opacity = "1";
-            }, 300);
-        });
-    });
+        const exitButton = document.getElementById("kategorije_exit");
+        if (exitButton) {
+            exitButton.addEventListener("click", () => {
+                const kategorije_section = document.getElementById("kategorije_section");
+                const kategorije_links = document.getElementById("kategorije_links");
+                const black_screen = document.getElementById("whole_screen");
 
-    document.getElementById("kategorije_exit").addEventListener("click", () =>{
-        const kategorije_section = document.getElementById("kategorije_section");
-        const kategorije_links = document.getElementById("kategorije_links");
-        const black_screen = document.getElementById("whole_screen");
+                kategorije_section.style.width = "0";
+                kategorije_links.style.opacity = "0";
+                setTimeout(() => {
+                    kategorije_links.style.display = "none";
+                    black_screen.style.display = "none";
+                }, 300);
+            });
+        } else {
+            console.warn("#kategorije_exit not found in DOM");
+        }
 
-        kategorije_section.style.width = "0";
-        kategorije_links.style.opacity = "0";
-        setTimeout(() => {
-            kategorije_links.style.display = "none";
-            black_screen.style.display = "none";
-        },300);
-    });
 
     // ovaj dio stavlja cijeli screen da bude zatamljeniji dok su kategorije otvorene
     document.getElementById("whole_screen").addEventListener("click", () =>{
@@ -235,15 +252,15 @@ document.addEventListener("DOMContentLoaded", () =>{
         },300);
     })
 
-    // funckija pamti u local storagu u kojem smo categoriji
-    function categories_memory(){
-        const categories_links = document.getElementsByClassName("kategorije_link");
-        for(let i = 0; i < categories_links.length; i++){
-            categories_links[i].addEventListener("click", () =>{
-                localStorage.setItem("categorie", categories_links[i].innerText);
-            });
-        }
+
+    const url = window.location.href;
+    const shouldDelay = url.includes("getProducts");
+
+    if (shouldDelay) {
+        setTimeout(() => {
+            sizeButtons();
+        }, 200);
+    } else {
+        sizeButtons();
     }
-    
-    categories_memory();
 });
