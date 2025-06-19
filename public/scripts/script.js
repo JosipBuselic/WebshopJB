@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () =>{
 
                     const container = sizes[i].closest(".container");
                     const id = container ? container.getAttribute("data-id") : null;
-                    console.log("Clicked size index:", i, "Container ID:", id);
 
                     if (!id) {
                         console.error("Data-id attribute not found on container!");
@@ -109,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () =>{
         if(!res.ok) throw new Error("nije dobro")
 
         const numberInCart = await res.json();
-        console.log(numberInCart.broj);
 
         const circle = document.getElementById("circle");
 
@@ -168,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () =>{
     if (kategorijeLink) {
         kategorijeLink.addEventListener("click", async (event) => {
             event.preventDefault();
-            console.log("Klik na kategorije!");
                 
             try {
                 const res = await fetch("/home/getCategories",{
@@ -183,8 +180,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
                 // Čistimo stare linkove da ne dupliciramo
                 kategorije_links.innerHTML = "";
-                console.log(categories)
-
+                
                 for(let i in categories){
                     const link = document.createElement("li");
                     link.classList.add("kategorije_link");
@@ -259,8 +255,10 @@ document.addEventListener("DOMContentLoaded", () =>{
     if (shouldDelay) {
         setTimeout(() => {
             sizeButtons();
-        }, 200);
+            updateCounters();
+        }, 100);
     } else {
         sizeButtons();
+        updateCounters();
     }
 });

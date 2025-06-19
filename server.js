@@ -13,7 +13,10 @@ app.use(express.json())
 app.use(session({
     secret: "SJSHAVDKHSAKHJDSAHVDLBABHSAVCLEVLVX",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 30 * 60 * 1000
+    }
 }));
 
 app.set("view engine", "ejs");
@@ -24,6 +27,10 @@ app.use("/data", express.static("data"));
 app.use("/home", homeroutes);
 app.use("/cart", cartroutes);
 
+app.get("/", (req,res) => {
+    res.redirect("/home")
+})
+
 
 
 
@@ -33,5 +40,5 @@ app.listen(port, (err) =>{
         console.log("ERROR");
     }
 
-    console.log("SUPER");
+    console.log("Pokrenut server: localhost:3000/home");
 });

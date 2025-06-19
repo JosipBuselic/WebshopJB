@@ -90,11 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
         for(let i = 0; i < subs.length; i++){
             subs[i].addEventListener("click", async (e) => {
 
-                const element = subs[i].closest(".element")
+                const element = e.target.closest(".element")
+                const quantityElement = element.querySelector(".quantity");
                 const productId = element.getAttribute("data-id")
 
                 const res = await fetch(`/cart/remove/${productId}`, {
-                    method: "POST",
+                    method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
                     }
@@ -116,8 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     refreshIndex();
 
                 } else {
-                    let currentQuantity = parseInt(quantitys[i].innerText);
-                    quantitys[i].innerText = currentQuantity - 1;
+                    let currentQuantity = parseInt(quantityElement.innerText);
+                    quantityElement.innerText = currentQuantity - 1;
                 }
                 
                 updateCart();
@@ -144,7 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
         for(let i = 0; i < adds.length; i++){
             adds[i].addEventListener("click", async () => {
 
-                const element = adds[i].closest(".element")
+                const element = e.target.closest(".element")
+                const quantityElement = element.querySelector(".quantity");
                 const productId = element.getAttribute("data-id")
                 const res = await fetch(`/cart/add/${productId}`, {
                     method: "POST",
@@ -155,8 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const product_in_cart = await res.json()
 
-                let currentQuantity = parseInt(quantitys[i].innerText);
-                quantitys[i].innerText = currentQuantity + 1;
+                let currentQuantity = parseInt(quantityElement.innerText);
+                quantityElement.innerText = currentQuantity + 1;
     
                 updateCart();
                 total_price_update();
@@ -171,7 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const numberInCart = await res.json();
-        console.log(numberInCart.broj);
 
         const circle = document.getElementById("circle");
 

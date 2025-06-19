@@ -46,8 +46,6 @@ router.post("/add/:id", (req, res, next) =>{
 
         req.session.cart.push(productCopy)
     }
-
-    console.log(req.session.cart)
     res.json({success: true});
 });
 
@@ -62,7 +60,6 @@ router.get("/number", (req, res, next) => {
         for(let i = 0; i < req.session.cart.length; i++){
             broj += req.session.cart[i].quantity
         }
-        console.log(broj)
         res.json({broj: broj})
     }
     
@@ -70,7 +67,7 @@ router.get("/number", (req, res, next) => {
 
 router.get("/getAll", (req, res, next) => {
     if(!req.session.cart){
-        res.json([])
+        return res.json([])
     }
     res.json(req.session.cart)
 })
@@ -80,7 +77,7 @@ router.post("/empty", (req, res, next) =>{
     res.json({success: true})
 })
 
-router.post("/remove/:id", (req, res, next) =>{
+router.delete("/remove/:id", (req, res, next) =>{
     const productId = req.params.id
 
 
