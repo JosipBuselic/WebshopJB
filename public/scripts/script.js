@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         setTimeout(() => {
             sizeButtons();
             updateCounters();
-        }, 100);
+        }, 300);
     } else {
         sizeButtons();
         updateCounters();
